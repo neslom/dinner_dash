@@ -25,5 +25,18 @@ RSpec.describe "Home page" do
       expect(page).to have_link("Avocado Toast")
     end
 
+    it "can view the cart page by clicking cart link" do
+      expect(page).to have_link("Cart", href: cart_path)
+
+      find_link("Cart", href: cart_path).click
+
+      expect(current_path).to eq(cart_path)
+
+      expect(page).to have_content("There are no items in your cart")
+    end
+
+    xit "can add items to the cart" do
+
+    end
   end
 end
