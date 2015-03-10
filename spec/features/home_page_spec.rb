@@ -9,9 +9,13 @@ RSpec.describe "Home page" do
     end
 
     it "shows a link to browse by category" do
+      category = create(:category)
+
       visit root_path
 
-      expect(page).to have_link("Browse By Category", href: categories_path)
+      expect(page).to have_link("Browse By Category: #{category.name}", href: category_path(category))
     end
+
+
   end
 end
