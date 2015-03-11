@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
         price: "3.00"}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
@@ -24,7 +17,7 @@ item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toa
         price: "5.00"}, { name: "Curry Toast", description: "Spicy and delicious", price: "8.00"}, { name:
         "Steak Toast", description: "Flank Steak", price: "7.50"}, { name: "Tofu Toast", description:
         "Marinated tofu", price: "4.00"}, { name: "Salmon Toast", description: "Alaskan made!", price:
-        "8.00"}])
+        "8.00"}, { name: "Cheese Toast", description: "melty sharp cheddar", price: "3.00"}])
 
 item_contents.each { |content| Item.create(content) }
 
