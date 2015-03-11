@@ -13,7 +13,7 @@ RSpec.describe 'User login spec' do
     fill_in("session[username]", with: "Sally")
     fill_in("session[password]", with: "password")
 
-    within(".form") do
+    within(".login_form") do
       click_link_or_button("Log in")
     end
 
