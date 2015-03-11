@@ -42,6 +42,5 @@ RSpec.describe User, type: :model do
     expect { create(:user, email_address: 'hello@exam.com', display_name: "wessfefhgjfhgjthgnjjjjjjjjjjjjjfhjsdfkjsdfkhsdfhfwf") }.to raise_error(ActiveRecord::RecordInvalid)
 
     expect { create(:user, email_address: "hey@ah.com", display_name: 'a') }.to raise_error(ActiveRecord::RecordInvalid)
-
   end
 end
