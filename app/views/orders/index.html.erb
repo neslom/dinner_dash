@@ -4,9 +4,9 @@
   <% @orders.each do |order| %>
     <% order.cart.each do |item_id, quantity| %>
     <li><%= Item.find(item_id).name %>
-<%= quantity %>
-  </li>
-<% end %>
-<% end %>
+        <%= quantity %>
+    </li>
+    <% end %>
+  <% end %>
 </ol>
 
