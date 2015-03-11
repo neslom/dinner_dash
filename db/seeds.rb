@@ -10,7 +10,7 @@ item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toa
         price: "3.00"}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
         { name: "Brownie Toast", description: "Delicious dark chocolate brownie on toast", price: "4.00"},
         { name: "Cinnamon Sugar Toast", description: "Toast sprinkled with raw cane sugar, fresh ground
-        cinnamon, and a hint of sea salt", price: "2.50"}, { name: "Avacodo Toast", description: "Fresh
+        cinnamon, and a hint of sea salt", price: "2.50"}, { name: "Avocado Toast", description: "Fresh
         California avacado sliced over toast", price: "5.00"}, { name: "Egg Toast", description: "Choose
         from fried or scrambled eggs!", price: "4.00"}, { name: "Dry Toast", description: "Nothing on it",
         price: "2.00"}, { name: "Tuna Salad Toast", description: "With pickles,onions, and a hint of basil",
@@ -39,4 +39,16 @@ user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstart
         display_name: "novohispano", role: 0}, { username: "Josh Cheek", email_address: "josh@jumpstartlab.com", password:
         "password", display_name: "josh", role: 1}])
 
-user_content.each { |content| User.create(content) }
+users = user_content.each { |content| User.create(content) }
+
+users.first.orders.create(status:0, cart: {"1":3, "4":1, "9":2})
+
+2.times do
+  users[2].orders.create(status:1, cart: {"1":1, "10":1})
+end
+
+5.times do
+  users[1].orders.create(status:1, cart: {"2":1})
+end
+
+users.last.orders.create(status:2, cart: {"15":3})
