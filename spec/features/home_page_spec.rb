@@ -35,8 +35,5 @@ RSpec.describe "Home page" do
       expect(page).to have_content("There are no items in your cart")
     end
 
-    xit "can add items to the cart" do
-
-    end
   end
 end

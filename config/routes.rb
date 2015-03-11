@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :categories
 
   get '/cart', to: 'cart#index'
+
+  post '/cart', to: 'cart#create'
 end
