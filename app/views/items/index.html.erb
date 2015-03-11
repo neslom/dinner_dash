@@ -1,0 +1,6 @@
+<h3>All Items</h3>
+
+<% @items.each do |item| %>
+  <%= link_to  item.name, item %>
+  <%= button_to  'Add to Cart', cart_path(item_id: item) %>
+<% end %>

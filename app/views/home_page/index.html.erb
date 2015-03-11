@@ -1,0 +1,7 @@
+<%= link_to "Browse All Items", items_path %>
+
+<% @categories.each do |category| %>
+  <%= link_to "Browse By Category: #{category.name}", category %>
+<% end %>
+
+<%= link_to "Cart", cart_path %>
