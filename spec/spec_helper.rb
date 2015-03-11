@@ -1,4 +1,7 @@
 require 'pry'
+require 'factory_girl_rails'
+
+Dir[File.dirname(__FILE__) + "/support/**/*.rb"].each {|f| require f }
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
