@@ -32,3 +32,11 @@ category_contents = ([{ name: "Side dishes"}, { name: "Small plates" }, { name: 
               { name: "Specials" }])
 
 category_contents.each { |content| Category.create(content) }
+
+user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstartlab.com", password: "password", display_name:nil,
+        role: 0}, { username: "Jeff Casimir", email_address: "jeff@jumpstartlab.com", password: "password", display_name:
+        "j3", role: 0}, { username: "Jorge Tellez", email_address: "jorge@jumpstartlab.com", password: "password",
+        display_name: "novohispano", role: 0}, { username: "Josh Cheek", email_address: "josh@jumpstartlab.com", password:
+        "password", display_name: "josh", role: 1}])
+
+user_content.each { |content| User.create(content) }
