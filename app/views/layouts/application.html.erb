@@ -8,7 +8,9 @@
 </head>
 <body>
 
+<div class="log_in">
 <%= link_to "Log in", login_path %>
+</div>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, id: "flash_#{name}" %>
