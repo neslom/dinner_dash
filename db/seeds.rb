@@ -14,12 +14,12 @@ item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toa
         California avacado sliced over toast", price: "5.00"}, { name: "Egg Toast", description: "Choose
         from fried or scrambled eggs!", price: "4.00"}, { name: "Dry Toast", description: "Nothing on it",
         price: "2.00"}, { name: "Tuna Salad Toast", description: "With pickles,onions, and a hint of basil",
-        price: "4.50"}, { name: "Enchilada Toast", description: "Black beans, chicken, and salsa", price:
+        price: "4.50"}, { name: "Buttered Toast", description: "Creamy melted butter", price:
         "5.00"}, { name: "Mac and Cheese Toast", description: "Rich, three cheese mac and cheese, on toast",
         price: "4.50"}, { name: "Salad Toast", description: "House salad on toast", price: "4.00"}, { name:
-        "Lasagna Toast", description: "Roasted veggies, ground beef and pork", price: "7.00"}, { name:
-        "Sausage Toast", description: "German style brat on toast", price: "6.00"}, { name: "Risotto Toast",
-        description: "Rich risotto on toast", price: "5.50"}, { name: "Chicken Toast", description: "Fried
+        "Peanut Butter Toast", description: "Fresh ground peanut butter", price: "7.00"}, { name:
+        "Sausage Toast", description: "German style brat on toast", price: "6.00"}, { name: "Jam Toast",
+        description: "Strawberry, or blueberry", price: "5.50"}, { name: "Chicken Toast", description: "Fried
         or grilled!", price: "8.00"}, { name: "Eggplant Toast", description: "Roasted Eggplant on toast",
         price: "5.00"}, { name: "Curry Toast", description: "Spicy and delicious", price: "8.00"}, { name:
         "Steak Toast", description: "Flank Steak", price: "7.50"}, { name: "Tofu Toast", description:
