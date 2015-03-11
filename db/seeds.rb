@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-items = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
+item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
         price: "3.00"}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
         { name: "Brownie Toast", description: "Delicious dark chocolate brownie on toast", price: "4.00"},
         { name: "Cinnamon Sugar Toast", description: "Toast sprinkled with raw cane sugar, fresh ground
@@ -25,3 +25,10 @@ items = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
         "Steak Toast", description: "Flank Steak", price: "7.50"}, { name: "Tofu Toast", description:
         "Marinated tofu", price: "4.00"}, { name: "Salmon Toast", description: "Alaskan made!", price:
         "8.00"}])
+
+item_contents.each { |content| Item.create(content) }
+
+category_contents = ([{ name: "Side dishes"}, { name: "Small plates" }, { name: "Desserts"}, { name: "Main Courses"},
+              { name: "Specials" }])
+
+category_contents.each { |content| Category.create(content) }
