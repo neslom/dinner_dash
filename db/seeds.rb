@@ -1,6 +1,6 @@
 
 item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
-        price: "3.00"}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
+        price: "3.00", retired?: true}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
         { name: "Brownie Toast", description: "Delicious dark chocolate brownie on toast", price: "4.00"},
         { name: "Cinnamon Sugar Toast", description: "Toast sprinkled with raw cane sugar, fresh ground
         cinnamon, and a hint of sea salt", price: "2.50"}, { name: "Avocado Toast", description: "Fresh
@@ -34,8 +34,8 @@ user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstart
 
 users = user_content.map { |content| User.create(content) }
 
-
-users.first.orders.create(status:0, cart: {"1"=>3, "4"=>1, "9"=>2})
+user = users.first
+user.orders.create(status:0, cart: {"1"=>3, "4"=>1, "9"=>2})
 
 2.times do
   users[2].orders.create(status:1, cart: {"1"=>1, "10"=>1})
