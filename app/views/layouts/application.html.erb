@@ -17,11 +17,25 @@
   <% end %>
 </div>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, id: "flash_#{name}" %>
-<% end %>
+    <%= render "shared/navigation" %>
 
-<%= yield %>
+    <div id="main-container" class="container-fluid">
+      <div class="row">
+        <%= @cart.inspect %>
 
-</body>
+          <div class="messsages">
+            <% flash.each do |name, msg| %>
+              <%= content_tag :div, msg, id: "flash_#{name}" %>
+            <% end %>
+          </div>
+        <div class="col-xs-3">
+
+        </div>
+        <div class="col-xs-9">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>

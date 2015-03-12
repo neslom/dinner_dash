@@ -1,3 +1,11 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
+  <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li>
+  <li><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
+  <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
+</ul>
+
+
 <% if !@cart_contents.empty? %>
   <ul>
   <% @cart_contents.each do |item, quantity| %>
