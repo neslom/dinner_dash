@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(retired?: false)
+    @items = Item.where(retired: false)
   end
 
   def show
