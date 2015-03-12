@@ -9,7 +9,7 @@ class CartController < ApplicationController
     session[:cart] = @cart.content
     item = Item.find(item_id)
     flash[:notice] = "#{item.name} added to cart"
-    redirect_to items_path
+    redirect_to(:back)
   end
 
   def destroy
