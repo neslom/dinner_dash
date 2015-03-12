@@ -1,9 +1,11 @@
-<%= link_to "Browse All Items", items_path %>
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
+  <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li>
+  <li><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
+  <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
+</ul>
 
-<% @categories.each do |category| %>
-  <%= link_to "Browse By Category: #{category.name}", category %>
-<% end %>
 
-<%= link_to "Cart", cart_path %>
-
-<%= link_to "Order History", orders_path %>
+    <% @categories.each do |category| %>
+      <%= link_to "Browse By Category: #{category.name}", category %>
+    <% end %>
