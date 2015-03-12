@@ -11,10 +11,6 @@ RSpec.describe CartController, type: :controller do
 
   describe "POST #create" do
     it "successfully adds item to cart" do
-      #create a new cart
-      #expect that it is empty
-      #add something to cart
-      #expect that it has that something
       item = create(:item)
       post :create, {item_id: item}
       expect(session[:cart][item.id.to_s]).to eq(1)
