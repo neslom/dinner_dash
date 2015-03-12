@@ -1,6 +1,6 @@
-<form role="form">
+<!-- <form role="form"> -->
   <div class="login_form">
-    <%= form_for(:session, url: login_path) do |f| %>
+    <%= form_for(:session, url: login_path, role: "form") do |f| %>
     <div class="form_group">
       <%= f.label :username %>
       <%= f.text_field :username %>
@@ -22,4 +22,4 @@
     <%= f.submit "Log in" %>
   <% end %>
   </div>
-</form>
+<!-- </form> -->
