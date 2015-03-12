@@ -15,4 +15,5 @@ RSpec.describe "Item index" do
       expect(page).to have_content("Avocado Toast")
     end
   end
+
 end
