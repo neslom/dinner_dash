@@ -7,8 +7,8 @@ class CartController < ApplicationController
     item_id = params[:item_id]
     @cart.add_item(item_id)
     session[:cart] = @cart.content
-    item = Item.find_by(id: item_id)
-    flash[:success] = "#{item.name} successfully added to cart"
+    item = Item.find(item_id)
+    flash[:notice] = "#{item.name} added to cart"
     redirect_to items_path
   end
 end

@@ -25,17 +25,11 @@ RSpec.describe "Item show" do
   end
 
   it "can click a link to add item to cart" do
-    #allow_any_instance_of(ApplicationController).to receive(:load_cart).and_return(Cart.new({"1" => 1}))
-    #expect(@cart).to be_nil
-    #expect(ApplicationController.new.load_cart.content.values.reduce(:+)).to eq(1)
-    #@cart = Cart.new({"1"=>1})
-    #good in controller test
-
     visit item_path(item)
     expect(page).to have_button("Add to Cart")
     click_link_or_button("Add to Cart")
     expect(current_path).to eq(items_path)
-    expect(page).to have_selector("#flash_success")
+    expect(page).to have_selector("#flash_notice")
   end
 
 end
