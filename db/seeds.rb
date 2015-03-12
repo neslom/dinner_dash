@@ -1,6 +1,6 @@
 
 item_contents = ([{ name: "Chocolate Toast", description: "Dark chocolate on toast",
-        price: "3.00"}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
+        price: "3.00", retired?: true}, { name: "Cake Toast", description: "Lemon poppyseed cake on toast", price: "4.00"},
         { name: "Brownie Toast", description: "Delicious dark chocolate brownie on toast", price: "4.00"},
         { name: "Cinnamon Sugar Toast", description: "Toast sprinkled with raw cane sugar, fresh ground
         cinnamon, and a hint of sea salt", price: "2.50"}, { name: "Avocado Toast", description: "Fresh
