@@ -1,0 +1,11 @@
+<h1 class="item-title"><%= @item.name %></h1>
+
+<p class="item-description"><%= @item.description %></p>
+
+<p class="item-price"><%= number_to_currency(@item.price) %></p>
+
+<%= button_to  'Add to Cart', cart_path(item_id: @item) %>
+
+<% if @item.retired? %>
+  <p class="retired-item"><%= "#{@item.name} has been retired from the menu" %></p>
+<% end %>

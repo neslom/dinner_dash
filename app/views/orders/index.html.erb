@@ -3,10 +3,10 @@
 <ol>
   <% @orders.each do |order| %>
     <% order.cart.each do |item_id, quantity| %>
-    <li><%= Item.find(item_id).name %>
-        <%= quantity %>
+    <li>
+      <%= link_to Item.find(item_id).name, item_path(item_id)%>
+      <%= quantity %>
     </li>
     <% end %>
   <% end %>
 </ol>
-

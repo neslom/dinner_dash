@@ -14,4 +14,8 @@ RSpec.describe Item, type: :model do
     expect(item).not_to be_valid
   end
 
+  it "not retired by default" do
+    expect(item.retired?).to be false
+  end
+
 end
