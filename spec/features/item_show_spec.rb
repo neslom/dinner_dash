@@ -36,7 +36,7 @@ RSpec.describe "Item show" do
     it "notes if item is retired" do
       user = create(:user)
       item = Item.create(name: "apple toast", description: "blah", price: 2.00, retired?: true)
-      order = user.orders.create(status: 0, cart: { item.id => 1 })
+      user.orders.create(status: 0, cart: { item.id => 1 })
       login_as(user)
       visit orders_path
       click_link_or_button("apple toast")
