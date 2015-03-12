@@ -34,7 +34,6 @@ user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstart
 
 users = user_content.map { |content| User.create(content) }
 
-
 users.first.orders.create(status:0, cart: {"1"=>3, "4"=>1, "9"=>2})
 
 2.times do
