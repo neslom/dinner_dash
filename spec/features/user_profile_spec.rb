@@ -12,13 +12,11 @@ RSpec.describe "Authenticated User profile" do
     click_link_or_button("Order History")
 
     expect(current_path).to eq(orders_path)
-
     expect(page).to have_content("#{user.username}'s Orders")
   end
 
   it "sees Order History" do
     user.orders.create(cart: {"1" => 1})
-
     create(:item, id: 1)
 
     visit orders_path

@@ -5,7 +5,7 @@ RSpec.describe 'User login/logout spec' do
 
   it "can login" do
     visit root_path
-
+    
     click_link_or_button("Log in")
 
     expect(current_path).to eq(login_path)
