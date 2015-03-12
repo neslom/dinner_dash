@@ -32,16 +32,17 @@ user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstart
         display_name: "novohispano", role: 0}, { username: "Josh Cheek", email_address: "josh@jumpstartlab.com", password:
         "password", display_name: "josh", role: 1}])
 
-users = user_content.each { |content| User.create(content) }
+users = user_content.map { |content| User.create(content) }
 
-users.first.orders.create(status:0, cart: {"1":3, "4":1, "9":2})
+
+users.first.orders.create(status:0, cart: {"1"=>3, "4"=>1, "9"=>2})
 
 2.times do
-  users[2].orders.create(status:1, cart: {"1":1, "10":1})
+  users[2].orders.create(status:1, cart: {"1"=>1, "10"=>1})
 end
 
 5.times do
-  users[1].orders.create(status:1, cart: {"2":1})
+  users[1].orders.create(status:1, cart: {"2"=>1})
 end
 
-users.last.orders.create(status:2, cart: {"15":3})
+users.last.orders.create(status:2, cart: {"15"=>3})
