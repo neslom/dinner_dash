@@ -4,6 +4,10 @@
 
 <p class="item-price"><%= number_to_currency(@item.price) %></p>
 
+<figure class="default-pic">
+  <%= image_tag("default_toast.jpg") %>
+</figure>
+
 <%= button_to  'Add to Cart', cart_path(item_id: @item) %>
 
 <% if @item.retired? %>

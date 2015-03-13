@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Cart do
   let(:item_1) { create(:item, id: 1) }
-  let(:item_2) { create(:item, id: 2) }
+  let(:item_2) { create(:item, id: 2, name: "Strawberry Toast") }
 
   it "has a hash of content by default" do
     cart = Cart.new(nil)
