@@ -3,23 +3,42 @@ require 'rails_helper'
 RSpec.describe 'User login/logout spec' do
   let!(:user) { create(:user) }
 
-  it "can login" do
-    visit root_path
-    
-    click_link_or_button("Log in")
+  context "when logged out" do
 
-    expect(current_path).to eq(login_path)
+    it "can login with valid credentials" do
+      visit root_path
 
-    fill_in("session[username]", with: "Sally")
-    fill_in("session[password]", with: "password")
-
-    within(".login_form") do
       click_link_or_button("Log in")
+
+      expect(current_path).to eq(login_path)
+
+      fill_in("session[username]", with: "Sally")
+      fill_in("session[password]", with: "password")
+
+      within(".login_form") do
+        click_link_or_button("Log in")
+      end
+
+      within("#flash_notice") do
+        expect(page).to have_content("Successfully logged in as #{user.username}")
+      end
     end
 
-    within("#flash_notice") do
-      expect(page).to have_content("Successfully logged in as #{user.username}")
+    it "cannot login with invalid credentials" do
+      visit root_path
+      click_link_or_button("Log in")
+      fill_in("session[username]", with: "Richard")
+      fill_in("session[password]", with: "beiber")
+
+      within(".login_form") do
+        click_link_or_button("Log in")
+      end
+
+      within("#flash_error") do
+        expect(page).to have_content("Login failed")
+      end
     end
+
   end
 
   context "when logged in" do
