@@ -6,14 +6,19 @@ RSpec.describe "Order" do
     set_current_user(user)
     set_cart
 
-    visit cart_path
-    click_link_or_button("Checkout")
-    visit orders_path
+    submit_order
+    view_order
 
     expect(page).to have_content("Status: ordered")
   end
 
-  it "shows formatted, updated at date" do
-    
+  it "shows formatted, updated at date for order" do
+    user = create(:user)
+    set_current_user(user)
+    set_cart
+
+    submit_order
+    view_order
+    expect(page).to have_content("")
   end
 end
