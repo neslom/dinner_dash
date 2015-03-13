@@ -4,5 +4,4 @@ FactoryGirl.define do
     description "Super cheesy bread food"
     price 3.00
   end
-
 end
