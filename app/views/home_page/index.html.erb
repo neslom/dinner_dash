@@ -13,6 +13,10 @@
   </div>
 </div>
 
+   <ul>
     <% @categories.each do |category| %>
-      <%= link_to "Browse By Category: #{category.name}", category %>
+    <div class="category col-md-2">
+      <li><%= link_to "Browse By Category: #{category.name}", category %> </li>
+    </div>
     <% end %>
+  </ul>
