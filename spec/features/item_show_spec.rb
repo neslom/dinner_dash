@@ -5,24 +5,21 @@ RSpec.describe "Item show" do
 
   it "displays item title" do
     visit item_path(item)
-
-    within('.item-title') do
+    within('#item-title') do
       expect(page).to have_content("Cheese Toast")
     end
   end
 
   it "displays item description" do
     visit item_path(item)
-
-    within(".item-description") do
+    within("#item-description") do
       expect(page).to have_content("Super cheesy bread food")
     end
   end
 
   it "display items price" do
     visit item_path(item)
-
-    within(".item-price") do
+    within("#item-price") do
       expect(page).to have_content("3.00")
     end
   end
@@ -54,8 +51,7 @@ RSpec.describe "Item show" do
       login_as(user)
       visit orders_path
       click_link_or_button("apple toast")
-
-      within(".retired-item") do
+      within("#retired-item") do
         expect(page).to have_content("#{item.name} has been retired from the menu")
       end
       expect(page).not_to have_content("Add to Cart")
