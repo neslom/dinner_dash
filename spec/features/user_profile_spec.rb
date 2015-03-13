@@ -4,6 +4,16 @@ RSpec.describe "Authenticated User profile" do
   let!(:user) { create(:user) }
   before(:each) { set_current_user(user) }
 
+  it "submits an order when cart is checked out" do
+    set_cart
+    visit cart_path
+
+    click_link_or_button("Checkout")
+    visit orders_path
+
+    expect(page).to have_content("Cheese Toast")
+  end
+
   it "can click Order History link to be taken to Order History page" do
     visit root_path
 
