@@ -4,7 +4,11 @@
 
 <p id="item-price"><%= number_to_currency(@item.price) %></p>
 
-<div id="item-button"><%= button_to  'Add to Cart', cart_path(item_id: @item) %></div>
+<figure class="default-pic">
+  <%= image_tag("default_toast.jpg") %>
+</figure>
+
+<%= button_to  'Add to Cart', cart_path(item_id: @item) %>
 
 <% if @item.retired? %>
   <p id="retired-item"><%= "#{@item.name} has been retired from the menu" %></p>

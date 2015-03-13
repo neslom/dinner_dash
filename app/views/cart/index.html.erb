@@ -2,10 +2,11 @@
 
 <% if !@cart_contents.empty? %>
   <ul>
-  <% @cart_contents.each do |item, quantity| %>
-    <li><%= Item.find(item).name %>
+  <% @cart_contents.each do |item_id, quantity| %>
+    <li><%= Item.find(item_id).name %>
         (<%= quantity %>)
-        <%= link_to "Remove Item", cart_path(item), method: :delete %>
+        <%= button_to "Add Item", cart_path(item_id: Item.find(item_id)) %>
+        <%= link_to "Remove Item", cart_path(item_id), method: :delete %>
 
     </li>
 <% end %>

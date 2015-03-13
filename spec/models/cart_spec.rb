@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Cart do
   let(:item_1) { create(:item, id: 1) }
-  let(:item_2) { create(:item, id: 2) }
+  let(:item_2) { create(:item, id: 2, name: "Strawberry Toast") }
 
   it "has a hash of content by default" do
     cart = Cart.new(nil)
@@ -14,11 +14,8 @@ RSpec.describe Cart do
     it "can have items added" do
       cart = Cart.new(nil)
 
-      cart.add_item(item_1.id)
-      cart.add_item(item_1.id)
-      cart.add_item(item_1.id)
-      cart.add_item(item_2.id)
-      cart.add_item(item_2.id)
+      3.times { cart.add_item(item_1.id) }
+      2.times { cart.add_item(item_2.id) }
 
       expect(cart.content).to eq({1 => 3, 2 => 2})
     end

@@ -11,6 +11,7 @@ RSpec.describe CartController, type: :controller do
 
   describe "POST #create" do
     it "successfully adds item to cart" do
+      request.env["HTTP_REFERER"] = "/cart"
       item = create(:item)
       post :create, {item_id: item}
       expect(session[:cart][item.id.to_s]).to eq(1)

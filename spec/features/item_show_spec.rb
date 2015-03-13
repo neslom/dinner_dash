@@ -24,11 +24,21 @@ RSpec.describe "Item show" do
     end
   end
 
+  it "displays a custom picture" do
+    visit item_path(item)
+    within(".default-pic") do
+      expect(page).to have_css("img")
+    end
+  end
+
   it "has a link to add item to cart" do
     visit item_path(item)
+
     expect(page).to have_button("Add to Cart")
+
     click_link_or_button("Add to Cart")
-    expect(current_path).to eq(items_path)
+
+    expect(current_path).to eq(item_path(item))
     expect(page).to have_selector("#flash_notice")
   end
 
@@ -37,6 +47,7 @@ RSpec.describe "Item show" do
       user = create(:user)
       item = Item.create(name: "apple toast", description: "blah", price: 2.00, retired: true)
       user.orders.create(status: 0, cart: { item.id => 1 })
+
       login_as(user)
       visit orders_path
       click_link_or_button("apple toast")

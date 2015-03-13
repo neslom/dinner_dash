@@ -14,8 +14,22 @@ RSpec.describe Item, type: :model do
     expect(item).not_to be_valid
   end
 
+  it "is invalid without a description" do
+    item.description = nil
+    expect(item).not_to be_valid
+  end
+
+  it "must have unique name" do
+    item
+    expect { create(:item, name: "Bacon Maple Crunch") }.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
   it "not retired by default" do
     expect(item.retired?).to be false
+  end
+
+  xit "has a decimal price, greater than zero" do
+    expect { create(:item, price: 0) }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
 end
