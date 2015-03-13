@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Order" do
+
   it "shows status of order in user's order history" do
     user = create(:user)
     set_current_user(user)
@@ -21,4 +22,9 @@ RSpec.describe "Order" do
     view_order
     expect(page).to have_content("")
   end
+
+  it "shows line-item totals for each item" do
+
+  end
+
 end
