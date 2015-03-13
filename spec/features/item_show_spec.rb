@@ -26,7 +26,9 @@ RSpec.describe "Item show" do
 
   it "displays a custom picture" do
     visit item_path(item)
-    expect(page).to have_css("figure.default-pic")
+    within(".default-pic") do
+      expect(page).to have_css("img")
+    end
   end
 
   it "has a link to add item to cart" do
