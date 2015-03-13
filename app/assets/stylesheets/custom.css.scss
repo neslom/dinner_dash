@@ -1,5 +1,6 @@
 body {
   background: image-url('confectionary.png') repeat;
+  background-attachment: fixed;
 }
 
 .logo {
@@ -35,10 +36,27 @@ body {
 }
 
 .category {
-  padding-left: 90px;
+  padding-left: 10px;
+  padding-right: 10px;
   list-style-type: none;
+  margin-left: 15px;
+  margin-right: 15px;
+
 }
 
-// .row {
-//   margin-top: 200px;
+// .item_cat {
+//   // width: 100%;
+//   // margin: 0 auto;
+//   border: 1px solid red;
 // }
+
+.toasty {
+  // margin-left: 120px;
+  // margin-right: 110px;
+}
+
+.floaters {
+  width: 23%;
+  float: left;
+  margin: 10px;
+}

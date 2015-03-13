@@ -4,7 +4,9 @@
   <h1>All Items</h1>
   <div class="row">
     <% @items.each do |item| %>
-      <div class="box col-lg-3">
+      <div class="floaters">
+        <!-- <div class="col-sm-1 image"><%# image_tag "default_toast.jpg" %></div> -->
+        <div class="toasty"><%= image_tag "default_toast.jpg" %></div>
         <h4 class="item-title"> <%= link_to  item.name, item %> </hr>
         <div class="item-cart-button">
           <%= button_to  'Add to Cart', cart_path(item_id: item) %>
