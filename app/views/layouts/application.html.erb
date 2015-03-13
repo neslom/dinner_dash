@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= @cart.inspect %>
 
 <div class="log_in">
   <% if current_user %>
@@ -21,7 +20,6 @@
 
     <div id="main-container" class="container-fluid">
       <div class="row">
-        <%= @cart.inspect %>
 
           <div class="messsages">
             <% flash.each do |name, msg| %>

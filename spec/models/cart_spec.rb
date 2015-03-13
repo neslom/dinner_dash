@@ -14,11 +14,8 @@ RSpec.describe Cart do
     it "can have items added" do
       cart = Cart.new(nil)
 
-      cart.add_item(item_1.id)
-      cart.add_item(item_1.id)
-      cart.add_item(item_1.id)
-      cart.add_item(item_2.id)
-      cart.add_item(item_2.id)
+      3.times { cart.add_item(item_1.id) }
+      2.times { cart.add_item(item_2.id) }
 
       expect(cart.content).to eq({1 => 3, 2 => 2})
     end
