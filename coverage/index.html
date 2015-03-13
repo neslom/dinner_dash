@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-12T21:19:25-06:00">2015-03-12T21:19:25-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-13T06:59:12-06:00">2015-03-13T06:59:12-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.81
+         5.46
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>15.1</td>
+        <td>17.3</td>
       </tr>
       
       <tr>
@@ -67,7 +67,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>4.0</td>
+        <td>4.8</td>
       </tr>
       
       <tr>
@@ -87,7 +87,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>4.6</td>
+        <td>5.4</td>
       </tr>
       
       <tr>
@@ -97,7 +97,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>2.1</td>
       </tr>
       
       <tr>
@@ -127,7 +127,7 @@
         <td>13</td>
         <td>13</td>
         <td>0</td>
-        <td>10.2</td>
+        <td>11.4</td>
       </tr>
       
       <tr>
@@ -183,7 +183,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.92
+         5.68
        </span>
     </span> hits/line)
   </h2>
@@ -215,7 +215,7 @@
         <td>8</td>
         <td>8</td>
         <td>0</td>
-        <td>15.1</td>
+        <td>17.3</td>
       </tr>
       
       <tr>
@@ -225,7 +225,7 @@
         <td>17</td>
         <td>17</td>
         <td>0</td>
-        <td>4.0</td>
+        <td>4.8</td>
       </tr>
       
       <tr>
@@ -245,7 +245,7 @@
         <td>5</td>
         <td>5</td>
         <td>0</td>
-        <td>4.6</td>
+        <td>5.4</td>
       </tr>
       
       <tr>
@@ -255,7 +255,7 @@
         <td>7</td>
         <td>7</td>
         <td>0</td>
-        <td>1.3</td>
+        <td>2.1</td>
       </tr>
       
       <tr>
@@ -280,7 +280,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.74
+         5.23
        </span>
     </span> hits/line)
   </h2>
@@ -312,7 +312,7 @@
         <td>13</td>
         <td>13</td>
         <td>0</td>
-        <td>10.2</td>
+        <td>11.4</td>
       </tr>
       
       <tr>
@@ -535,8 +535,8 @@
           <code class="ruby">  def load_cart</code>
         </li>
       
-        <li class="covered" data-hits="66" data-linenumber="6">
-          <span class="hits">66</span>
+        <li class="covered" data-hits="78" data-linenumber="6">
+          <span class="hits">78</span>
           
           <code class="ruby">    @cart = Cart.new(session[:cart])</code>
         </li>
@@ -559,8 +559,8 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="49" data-linenumber="10">
-          <span class="hits">49</span>
+        <li class="covered" data-hits="54" data-linenumber="10">
+          <span class="hits">54</span>
           
           <code class="ruby">    @current_user ||= User.find(session[:user_id]) if session[:user_id]</code>
         </li>
@@ -619,8 +619,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="3">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="3">
+          <span class="hits">12</span>
           
           <code class="ruby">    @cart_contents = @cart.content</code>
         </li>
@@ -643,38 +643,38 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="7">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="7">
+          <span class="hits">10</span>
           
           <code class="ruby">    item_id = params[:item_id]</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="8">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="8">
+          <span class="hits">10</span>
           
           <code class="ruby">    @cart.add_item(item_id)</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="9">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="9">
+          <span class="hits">10</span>
           
           <code class="ruby">    session[:cart] = @cart.content</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="10">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="10">
+          <span class="hits">10</span>
           
           <code class="ruby">    item = Item.find(item_id)</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="11">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="11">
+          <span class="hits">10</span>
           
           <code class="ruby">    flash[:notice] = &quot;#{item.name} added to cart&quot;</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="12">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="10" data-linenumber="12">
+          <span class="hits">10</span>
           
           <code class="ruby">    redirect_to(:back)</code>
         </li>
@@ -853,8 +853,8 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="7">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="11" data-linenumber="7">
+          <span class="hits">11</span>
           
           <code class="ruby">    @item = Item.find(params[:id])</code>
         </li>
@@ -901,8 +901,8 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="3">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="3">
+          <span class="hits">5</span>
           
           <code class="ruby">    @orders = current_user.orders</code>
         </li>
@@ -925,16 +925,16 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
           
-          <code class="ruby">    @cart.content = {}</code>
+          <code class="ruby">    order_cart = @cart.content</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="3" data-linenumber="8">
+          <span class="hits">3</span>
           
-          <code class="ruby">    @cart_content = @cart.content</code>
+          <code class="ruby">    current_user.orders.create(cart: order_cart)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="9">
@@ -1189,8 +1189,8 @@
           <code class="ruby">  def initialize(content)</code>
         </li>
       
-        <li class="covered" data-hits="71" data-linenumber="5">
-          <span class="hits">71</span>
+        <li class="covered" data-hits="83" data-linenumber="5">
+          <span class="hits">83</span>
           
           <code class="ruby">    @content = content || Hash.new</code>
         </li>
@@ -1213,14 +1213,14 @@
           <code class="ruby">  def add_item(item_id)</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="9">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="25" data-linenumber="9">
+          <span class="hits">25</span>
           
           <code class="ruby">    @content[item_id] ||= 0</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="10">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="25" data-linenumber="10">
+          <span class="hits">25</span>
           
           <code class="ruby">    @content[item_id] += 1</code>
         </li>
