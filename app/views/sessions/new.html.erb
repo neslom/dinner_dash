@@ -1,25 +1,13 @@
-<!-- <form role="form"> -->
-  <div class="login_form">
-    <%= form_for(:session, url: login_path, role: "form") do |f| %>
-    <div class="form_group">
+  <%= form_for(:session, url: login_path, role: "form") do |f| %>
       <%= f.label :username %>
       <%= f.text_field :username %>
-    </div>
-    <div class="form_group">
       <%= f.label :email_address %>
       <%= f.text_field :email_address %>
-    </div>
-    <div class="form_group">
       <%= f.label :password %>
       <%= f.password_field :password %>
-    </div>
-    <div class="form_group">
       <%= f.label :display_name %>
       <%= f.text_field :display_name, placeholder: "optional" %>
-    </div>
 
       <%= f.hidden_field :role %>
     <%= f.submit "Log in" %>
   <% end %>
-  </div>
-<!-- </form> -->

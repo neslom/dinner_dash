@@ -1,10 +1,17 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
-  <!-- <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li> -->
-  <li><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
-  <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
-</ul>
+<div class="row">
+  <div class="col-md-1 logo">
+    <%= image_tag "toasted_logo.png" %>
+  </div>
 
+  <div class="col-md-7 col-md-offset-2 navbar">
+    <ul class="nav nav-tabs" role="tablist">
+      <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
+      <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li>
+      <li><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
+      <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
+    </ul>
+  </div>
+</div>
 
     <% @categories.each do |category| %>
       <%= link_to "Browse By Category: #{category.name}", category %>
