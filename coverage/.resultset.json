@@ -92,6 +92,12 @@
         1,
         null
       ],
+      "/Users/Kyra/Documents/coding/Turing/module_2/projects/dinner_dash/app/models/item_category.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
       "/Users/Kyra/Documents/coding/Turing/module_2/projects/dinner_dash/app/models/item.rb": [
         1,
         1,
@@ -107,7 +113,6 @@
         1,
         1,
         1,
-        null,
         null,
         1,
         5,
@@ -139,12 +144,6 @@
         null,
         null,
         null,
-        null
-      ],
-      "/Users/Kyra/Documents/coding/Turing/module_2/projects/dinner_dash/app/models/item_category.rb": [
-        1,
-        1,
-        1,
         null
       ],
       "/Users/Kyra/Documents/coding/Turing/module_2/projects/dinner_dash/app/controllers/home_page_controller.rb": [
@@ -191,6 +190,6 @@
         null
       ]
     },
-    "timestamp": 1426265985
+    "timestamp": 1426288120
   }
 }

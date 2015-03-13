@@ -4,6 +4,6 @@ class Order < ActiveRecord::Base
   before_create :format_time
 
   def format_time
-    updated_at.to_formatted_s(:long)
+    self.updated_at.to_formatted_s(:long)
   end
 end
