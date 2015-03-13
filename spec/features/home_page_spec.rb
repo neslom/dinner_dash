@@ -13,8 +13,8 @@ RSpec.describe "Home page" do
     end
 
     it "shows a link to browse by category" do
-      expect(page).to have_link("Browse By Category: #{category_1.name}", href: category_path(category_1))
-      expect(page).to have_link("Browse By Category: #{category_2.name}", href: category_path(category_2))
+      expect(page).to have_link("#{category_1.name}", href: category_path(category_1))
+      expect(page).to have_link("#{category_2.name}", href: category_path(category_2))
     end
 
     it "shows a list of all items once Browse All Items link is clicked" do

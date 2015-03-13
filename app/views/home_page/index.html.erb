@@ -1,11 +1,13 @@
 <%= render 'shared/nav_bar' %>
 
+<h3>Browse by Category</h3>
+
 <div class="row">
   <div class="item_cat">
    <ul>
     <% @categories.each do |category| %>
     <div class="category col-md-2">
-      <li><%= link_to "Browse By Category: #{category.name}", category %> </li>
+      <li><%= link_to "#{category.name}", category %> </li>
     </div>
     <% end %>
   </ul>
