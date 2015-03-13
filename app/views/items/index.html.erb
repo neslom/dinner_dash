@@ -1,14 +1,7 @@
 <div id="menu">
-
-  <ul class="nav nav-tabs" role="tablist">
-    <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
-    <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li>
-    <li class="active"><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
-    <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
-  </ul>
+  <%= render 'shared/nav_bar' %>
 
   <h1>All Items</h1>
-
   <div class="row">
     <% @items.each do |item| %>
       <div class="box col-lg-3">
