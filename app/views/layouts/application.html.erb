@@ -15,15 +15,15 @@
     <%= link_to "Log in", login_path %>
   <% end %>
 </div> -->
+    <div class="main-container">
+      <div class="messsages">
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, id: "flash_#{name}" %>
+        <% end %>
+      </div>
 
-
-          <div class="messsages">
-            <% flash.each do |name, msg| %>
-              <%= content_tag :div, msg, id: "flash_#{name}" %>
-            <% end %>
-          </div>
-
-          <%= yield %>
+      <%= yield %>
+    </div>
 
   </body>
 </html>

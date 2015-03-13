@@ -2,7 +2,7 @@ body {
   background: image-url('confectionary.png') repeat;
 }
 
-div.col-md-1.logo {
+.logo {
   margin-right: 10px;
   margin-bottom: 5px;
 }
@@ -10,4 +10,27 @@ div.col-md-1.logo {
 .navbar {
   margin-right: 23px;
   margin-top: 23px;
+}
+
+#item-title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 30px;
+  text-shadow: 0px 2px 3px #666;
+}
+
+#item-description {
+  min-height: 25px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#item-price {
+  min-height: 24px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#item-button {
+  margin-left: 30px;
 }

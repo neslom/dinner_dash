@@ -1,13 +1,23 @@
-<ul class="nav nav-tabs" role="tablist">
-  <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
-  <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li>
-  <li class="active"><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
-  <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
-</ul>
+<div id="menu">
 
-<h3>All Items</h3>
+  <ul class="nav nav-tabs" role="tablist">
+    <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
+    <li><%= link_to "Log in", login_path, class: 'btn btn-link btn-sm'  %></li>
+    <li class="active"><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
+    <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
+  </ul>
 
-<% @items.each do |item| %>
-  <%= link_to  item.name, item %>
-  <%= button_to  'Add to Cart', cart_path(item_id: item) %>
-<% end %>
+  <h1>All Items</h1>
+
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="box col-lg-3">
+        <h4 class="item-title"> <%= link_to  item.name, item %> </hr>
+        <div class="item-cart-button">
+          <%= button_to  'Add to Cart', cart_path(item_id: item) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
