@@ -36,18 +36,10 @@ RSpec.describe "Cart" do
   end
 
   it "can checkout cart" do
-    #     I can review my cart contents,
-    # and I click submit
-    # I can know see that order,
-    # in my order history,
-    # and that order has a status of ordered.
-
-    #visit page
-    #click checkout button
-    #see confirmation message
-    #visit order history page
-    #expect to see that order with status of ordered
-    
+    visit cart_path
+    click_link_or_button("Checkout")
+    expect(page).to have_content("Order successfully submitted!")
+    expect(page).not_to have_content("Cheese Toast")
   end
 
 end
