@@ -26,6 +26,18 @@ category_contents = ([{ name: "Side dishes"}, { name: "Small plates" }, { name: 
 
 category_contents.each { |content| Category.create(content) }
 
+#ItemCategories
+
+item_contents.each_with_index do |item, index|
+  if index < 7
+  Item.find_by(name: item[:name]).categories.push(Category.first)
+  elsif index < 13
+    Item.find_by(name: item[:name]).categories.push(Category.second).push(Category.fifth)
+  else
+    Item.find_by(name: item[:name]).categories.push(Category.third).push(Category.fourth)
+  end
+end
+
 user_content = ([{ username: "Rachel Warbelow", email_address: "rachel@jumpstartlab.com", password: "password", display_name:nil,
         role: 0}, { username: "Jeff Casimir", email_address: "jeff@jumpstartlab.com", password: "password", display_name:
         "j3", role: 0}, { username: "Jorge Tellez", email_address: "jorge@jumpstartlab.com", password: "password",
