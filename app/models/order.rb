@@ -1,6 +1,4 @@
 class Order < ActiveRecord::Base
-  # include ApplicationHelper
-
   belongs_to :user
   enum status: %w(ordered paid completed cancelled)
 
