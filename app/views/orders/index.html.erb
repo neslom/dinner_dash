@@ -2,17 +2,18 @@
 
 <ol>
   <% @orders.each do |order| %>
-    <li>Status: <%= order.status %></li>
-    <li>Updated At: <%= order.updated_at %></li>
-
     <ol>
       <% order.cart.each do |item_id, quantity| %>
       <li>
         <%= link_to Item.find(item_id).name, item_path(item_id)%>
         <%= quantity %>
+        <%= order.line_item_total(item_id, quantity) %>
       </li>
       <% end %>
     </ol>
 
+    <li>Status: <%= order.status %></li>
+    <li>Updated At: <%= order.format_time %></li>
+    <li>Order Total: <%= order.total %></li>
   <% end %>
 </ol>
