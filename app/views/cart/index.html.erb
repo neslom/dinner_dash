@@ -12,7 +12,9 @@
     <% end %>
 
   </ul>
-    <%= button_to "Checkout", orders_path %>
+    <% if current_user %>
+      <%= button_to "Checkout", orders_path %>
+    <% end %>
 <% else %>
   <p> "There are no items in your cart" </p>
 <% end %>

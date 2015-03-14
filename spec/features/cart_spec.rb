@@ -35,11 +35,4 @@ RSpec.describe "Cart" do
     end
   end
 
-  it "can checkout cart" do
-    visit cart_path
-    click_link_or_button("Checkout")
-    expect(page).to have_content("Order successfully submitted!")
-    expect(page).not_to have_content("Cheese Toast")
-  end
-
 end
