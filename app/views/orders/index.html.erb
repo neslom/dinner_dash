@@ -10,6 +10,7 @@
       <li>
         <%= link_to Item.find(item_id).name, item_path(item_id)%>
         <%= quantity %>
+        <%= order.line_item_total(item_id, quantity) %>
       </li>
       <% end %>
     </ol>
