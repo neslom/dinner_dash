@@ -2,13 +2,14 @@
 
 <ol>
   <% @orders.each do |order| %>
+    
     <ol>
-      <% order.cart.each do |item_id, quantity| %>
-      <li>
-        <%= link_to Item.find(item_id).name, item_path(item_id)%>
-        <%= quantity %>
-        <%= order.line_item_total(item_id, quantity) %>
-      </li>
+      <% order.items_with_quantity.each do |item, quantity|%>
+        <li>
+          <%= link_to item.name, item_path(item) %>
+          <%= quantity %>
+          <%= order.line_item_total(item, quantity) %>
+        </li>
       <% end %>
     </ol>
 

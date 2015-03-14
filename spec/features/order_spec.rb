@@ -6,8 +6,9 @@ RSpec.describe "Order" do
     set_current_user(user)
     set_cart
 
-    submit_order
-    view_order
+    visit cart_path
+    click_link_or_button("Checkout")
+    visit orders_path
   end
 
   it "shows status of order in user's order history" do
