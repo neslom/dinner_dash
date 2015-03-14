@@ -15,8 +15,9 @@ RSpec.describe "Order" do
     expect(page).to have_content("Status: ordered")
   end
 
-  it "shows formatted, updated at date for order" do
-    expect(page).to have_content("March 14, 2015")
+  it "shows a readable updated at date for order" do
+    expect(page).to have_content("ago")
+    expect(page).to have_content("Updated:")
   end
 
   it "shows line-item totals for each item" do

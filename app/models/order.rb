@@ -1,16 +1,9 @@
 class Order < ActiveRecord::Base
-  include ApplicationHelper
-
   belongs_to :user
   enum status: %w(ordered paid completed cancelled)
-  before_create :format_time
-
-  def format_time
-    updated_at.to_formatted_s(:long)
-  end
 
   def line_item_total(item, quantity)
-    format_currency(item.price * quantity)
+    item.price * quantity
   end
 
   def items_with_quantity
@@ -22,16 +15,12 @@ class Order < ActiveRecord::Base
 
   def total
     totals = items_with_quantity.map do |item, quantity|
-      item.price * quantity
+      line_item_total(item, quantity)
     end
-    format_currency(totals.reduce(:+))
+    totals.reduce(:+)
   end
 
   private
-
-  def format_currency(float)
-    helpers.number_to_currency(float)
-  end
 
   def format_quantity
     cart.each { |item, quantity| cart[item] = quantity.to_i }
