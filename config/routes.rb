@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     get '/', to: 'dashboard#index'
 
     resources :items
+
+    resources :categories
   end
 
 end

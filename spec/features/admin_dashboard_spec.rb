@@ -24,4 +24,18 @@ RSpec.describe "Admin dashboard" do
 
     expect(page).to have_link("Cheese Toast")
   end
+
+  it "has a link to Manage Categories" do
+    create(:category)
+
+    expect(page).to have_link("Manage Categories")
+
+    click_link_or_button("Manage Categories")
+
+    expect(current_path).to eq(admin_categories_path)
+
+    expect(page).to have_link("Entree")
+  end
+
+
 end
