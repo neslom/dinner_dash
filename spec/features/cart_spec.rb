@@ -12,7 +12,7 @@ RSpec.describe "Cart" do
   it "shows a list of cart items" do
     visit cart_path
 
-    expect(page).to have_content("Cheese Toast (1)")
+    expect(page).to have_content("Cheese Toast 1")
   end
 
   it "can remove an item from the cart" do
@@ -33,13 +33,6 @@ RSpec.describe "Cart" do
     within("#flash_notice") do
       expect(page).to have_content("Cheese Toast added to cart")
     end
-  end
-
-  it "can checkout cart" do
-    visit cart_path
-    click_link_or_button("Checkout")
-    expect(page).to have_content("Order successfully submitted!")
-    expect(page).not_to have_content("Cheese Toast")
   end
 
 end

@@ -28,7 +28,7 @@ RSpec.describe Item, type: :model do
     expect(item.retired?).to be false
   end
 
-  xit "has a decimal price, greater than zero" do
+  it "has a decimal price, greater than zero" do
     expect { create(:item, price: 0) }.to raise_error(ActiveRecord::RecordInvalid)
   end
 

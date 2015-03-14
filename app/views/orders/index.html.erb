@@ -2,19 +2,20 @@
 
 <ol>
   <% @orders.each do |order| %>
-    
+
     <ol>
       <% order.items_with_quantity.each do |item, quantity|%>
         <li>
           <%= link_to item.name, item_path(item) %>
-          <%= quantity %>
-          <%= order.line_item_total(item, quantity) %>
+          <%= quantity %> @ <%= number_to_currency(item.price) %>
+          = <%= number_to_currency(order.line_item_total(item, quantity)) %>
         </li>
       <% end %>
     </ol>
 
     <li>Status: <%= order.status %></li>
-    <li>Updated At: <%= order.format_time %></li>
-    <li>Order Total: <%= order.total %></li>
+    <li>Updated: <%= time_ago_in_words(order.updated_at) %> ago</li>
+
+    <li>Order Total: <%= number_to_currency(order.total) %></li>
   <% end %>
 </ol>

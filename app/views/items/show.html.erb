@@ -8,8 +8,9 @@
   <%= image_tag("default_toast.jpg") %>
 </figure>
 
-<%= button_to  'Add to Cart', cart_path(item_id: @item) %>
 
 <% if @item.retired? %>
   <p id="retired-item"><%= "#{@item.name} has been retired from the menu" %></p>
+<% else %>
+  <%= button_to  'Add to Cart', cart_path(item_id: @item) %>
 <% end %>
