@@ -28,10 +28,6 @@ class Order < ActiveRecord::Base
     items
   end
 
-  def items
-    cart.keys.map { |id| Item.find(id) }
-  end
-
   def total
     totals = items_with_quantity.map do |item, quantity|
       item.price * quantity
