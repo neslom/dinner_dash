@@ -9,14 +9,6 @@ class Order < ActiveRecord::Base
     updated_at.to_formatted_s(:long)
   end
 
-  def format_currency(float)
-    helpers.number_to_currency(float)
-  end
-
-  def format_quantity
-    cart.each { |item, quantity| cart[item] = quantity.to_i }
-  end
-
   def line_item_total(item, quantity)
     format_currency(item.price * quantity)
   end
@@ -35,4 +27,13 @@ class Order < ActiveRecord::Base
     format_currency(totals.reduce(:+))
   end
 
+  private
+
+  def format_currency(float)
+    helpers.number_to_currency(float)
+  end
+
+  def format_quantity
+    cart.each { |item, quantity| cart[item] = quantity.to_i }
+  end
 end
