@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home_page#index'
+  root "home_page#index"
 
   resources :items
 
@@ -7,20 +7,20 @@ Rails.application.routes.draw do
 
   resources :orders
 
-  get '/cart', to: 'cart#index'
+  get "/cart", to: "cart#index"
 
-  post '/cart', to: 'cart#create'
+  post "/cart", to: "cart#create"
 
-  delete '/cart', to: 'cart#destroy'
+  delete "/cart", to: "cart#destroy"
 
-  get '/login', to: 'sessions#new'
+  get "/login", to: "sessions#new"
 
-  post '/login', to: 'sessions#create'#, as: 'sessions'
+  post "/login", to: "sessions#create"
 
-  delete '/logout', to: 'sessions#destroy'
+  delete "/logout", to: "sessions#destroy"
 
   namespace :admin do
-    get '/', to: 'dashboard#index'
+    get "/", to: "dashboard#index"
 
     resources :items
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
     resources :orders
 
-    delete '/item_category', to: "item_categories#destroy"
+    resources :item_categories
   end
 
 end
