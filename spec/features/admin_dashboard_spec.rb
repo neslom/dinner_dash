@@ -37,5 +37,17 @@ RSpec.describe "Admin dashboard" do
     expect(page).to have_link("Entree")
   end
 
+  xit "has a link to Manage Orders" do
+    create(:order)
+
+    expect(page).to have_link("Manage Orders")
+
+    click_link_or_button("Manage Orders")
+
+    expect(current_path).to eq(admin_orders_path)
+
+    expect(page).to have_content("Categories:")
+
+  end
 
 end
