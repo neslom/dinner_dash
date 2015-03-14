@@ -1,3 +1,16 @@
 <h3>Manage <%= @category.name %></h3>
 
-<%= render template: "admin/items/_items_list" %>
+<div id="menu">
+  <h1>All Items</h1>
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="floaters">
+        <h4 class="item-title"> <%= link_to  item.name, item %> </hr>
+        <div class="item-cart-button">
+          <%= button_to  'Remove Item', admin_item_category_path(item_id: item, category_id: params[:id]), method: :delete, data: { confirm: 'Are you sure?' }%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

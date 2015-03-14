@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :categories
 
     resources :orders
+
+    delete '/item_category', to: "item_categories#destroy"
   end
 
 end

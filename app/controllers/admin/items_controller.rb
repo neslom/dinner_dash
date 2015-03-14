@@ -4,4 +4,9 @@ class Admin::ItemsController < ApplicationController
   def index
     @items = Item.all
   end
+
+  def update
+    @item = Item.find(params[:id])
+  end
+
 end
