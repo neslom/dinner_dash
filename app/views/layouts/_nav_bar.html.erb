@@ -6,14 +6,14 @@
 
   <div class="col-md-7 col-md-offset-2 navbar">
     <ul class="nav nav-tabs" role="tablist">
-      <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
-      <li><div class="log_in">
+      <li>
         <% if current_user %>
           <%= link_to "Log out", logout_path, method: :delete, class: 'btn btn-link btn-sm' %>
         <% else %>
           <%= link_to "Log in", login_path, class: 'btn btn-link btn-sm' %>
         <% end %>
-      </div></li>
+      </li>
+      <li><%= link_to "Cart", cart_path, class: 'btn btn-link btn-sm' %></li>
       <li><%= link_to "Browse All Items", items_path, class: 'btn btn-link btn-sm' %></li>
       <li><%= link_to "Order History", orders_path, class: 'btn btn-info btn-sm' %></li>
     </ul>
