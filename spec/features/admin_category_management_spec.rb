@@ -43,10 +43,12 @@ RSpec.describe "Admin Category Management" do
     expect(current_path).to eq(new_admin_item_category_path)
   end
 
-  xit "can select an item from a drop down to add it to the category" do
+  it "can select an item from a drop down to add it to the category" do
     click_link_or_button("Entree")
     click_link_or_button("Add Item")
+    click_link_or_button("Submit")
 
+    expect(page).to have_content("Category updated!")
   end
 
 end
