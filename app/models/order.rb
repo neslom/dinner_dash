@@ -6,26 +6,37 @@ class Order < ActiveRecord::Base
   before_create :format_time
 
   def format_time
-    self.updated_at.to_formatted_s(:long)
+    updated_at.to_formatted_s(:long)
   end
 
-  def format_currency(total)
-    helpers.number_to_currency(total)
+  def format_currency(float)
+    helpers.number_to_currency(float)
   end
 
-  def line_item_total(id, quantity)
-    total = Item.find(id).price * quantity.to_i
-    format_currency(total)
+  def format_quantity
+    cart.each { |item, quantity| cart[item] = quantity.to_i }
+  end
+
+  def line_item_total(item, quantity)
+    format_currency(item.price * quantity)
+  end
+
+  def items_with_quantity
+    format_quantity
+    items = {}
+    cart.each { |id, quantity| items[Item.find(id)] = quantity }
+    items
   end
 
   def items
-    self.cart.keys.map { |id| Item.find(id)}
+    cart.keys.map { |id| Item.find(id)}
   end
 
   def total
-    line_totals = items.map { |item| item.price }
-    total = line_totals.reduce(:+)
-    format_currency(total)
+    totals = items_with_quantity.map do |item, quantity|
+      item.price * quantity
+    end
+    format_currency(totals.reduce(:+))
   end
 
 end

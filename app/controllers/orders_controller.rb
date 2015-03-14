@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   def index
     @orders = current_user.orders
-    # @line_item_total = Cart.line_item_total#item price * quantity
   end
 
   def create
+    OrderEngine.process(@cart)
     order_cart = @cart.content
     current_user.orders.create(cart: order_cart)
     session[:cart]={}
