@@ -27,10 +27,7 @@ RSpec.describe Cart do
       5.times { cart.add_item(item_1.id) }
 
       expect(total_quantity).to eq(5)
-
-      cart.remove_item(item_1.id)
-
-      expect(total_quantity).to eq(4)
+      expect(cart.remove_item(item_1.id)).to eq(4)
     end
 
     it "deletes item pair from cart if the last one is removed" do
