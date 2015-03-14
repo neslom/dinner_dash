@@ -3,7 +3,7 @@
   <div class="row">
     <% @categories.each do |category| %>
       <div class="floaters">
-        <h4 class="item-title"> <%= link_to  category.name, category %> </hr>
+        <h4 class="item-title"> <%= link_to  category.name, admin_category_path(category) %> </hr>
       </div>
     <% end %>
   </div>

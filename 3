@@ -1,0 +1,7 @@
+<%= @category.name %>
+<%= form_for([:admin, @item_category]) do |f| %>
+    <%= f.label "Item Name" %>
+    <%= f.text_field :item_id %>
+
+  <%= f.submit "Check In" %>
+<% end %>

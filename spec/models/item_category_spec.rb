@@ -12,7 +12,7 @@ RSpec.describe ItemCategory do
     expect(item.categories.last).to eq(category_2)
   end
 
-  it "has a category with items in it" do
+  it "can add items to a category" do
     category = create(:category)
     item_1 = create(:item, name: "Dry Bread")
     item_2 = create(:item, name: "Wet Bread")
@@ -20,6 +20,25 @@ RSpec.describe ItemCategory do
 
     expect(category.items.count).to eq(2)
     expect(category.items.first).to eq(item_1)
+  end
+
+  it "can have an item removed from a category" do
+    category = create(:category)
+    item_1 = create(:item, name: "Dry Bread")
+    category.items.push(item_1)
+
+    expect(category.items.count).to eq(1)
+
+    item_1.categories.delete(category)
+
+    expect(category.items.count).to eq(0)
+  end
+
+  it "does not allow for a duplicate entry" do
+    ItemCategory.create(category_id: 1, item_id: 1)
+    duplicate = ItemCategory.new(category_id: 1, item_id: 1)
+
+    expect(duplicate).not_to be_valid
   end
 
 end
