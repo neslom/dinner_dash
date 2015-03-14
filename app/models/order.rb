@@ -27,11 +27,11 @@ class Order < ActiveRecord::Base
     format_currency(totals.reduce(:+))
   end
 
-  private
-
   def format_currency(float)
     helpers.number_to_currency(float)
   end
+  private
+
 
   def format_quantity
     cart.each { |item, quantity| cart[item] = quantity.to_i }

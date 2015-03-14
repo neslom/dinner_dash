@@ -2,13 +2,13 @@
 
 <ol>
   <% @orders.each do |order| %>
-    
+
     <ol>
       <% order.items_with_quantity.each do |item, quantity|%>
         <li>
           <%= link_to item.name, item_path(item) %>
-          <%= quantity %>
-          <%= order.line_item_total(item, quantity) %>
+          <%= quantity %> @ <%= order.format_currency(item.price) %>
+          = <%= order.line_item_total(item, quantity) %>
         </li>
       <% end %>
     </ol>
