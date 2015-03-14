@@ -29,7 +29,7 @@ class Order < ActiveRecord::Base
   end
 
   def items
-    cart.keys.map { |id| Item.find(id)}
+    cart.keys.map { |id| Item.find(id) }
   end
 
   def total
