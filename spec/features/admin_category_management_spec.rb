@@ -10,13 +10,6 @@ RSpec.describe "Admin Category Management" do
     click_link_or_button("Manage Categories")
   end
 
-  #On the Admin Dashboard,
-  #I can click a link to be taken to a Manage Categories page.
-  #On the Manage Categories page,
-  #I can click a link for a Category to see all of the items in that category.
-  #I can click a button to remove an item from the category,
-  #or I can click a button "Add Item" to add an item to the category
-
   it "is taken to a listing of Category Items" do
     click_link_or_button("Entree")
 
@@ -49,6 +42,17 @@ RSpec.describe "Admin Category Management" do
     click_link_or_button("Submit")
 
     expect(page).to have_content("Category updated!")
+  end
+
+  it "cannot add an item to a category if it is already in the category" do
+    click_link_or_button("Entree")
+    2.times do
+      click_link_or_button("Add Item")
+      click_link_or_button("Submit")
+    end
+
+    expect(page).to have_content("Item already exists in this Category")
+
   end
 
 end
