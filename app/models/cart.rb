@@ -5,10 +5,6 @@ class Cart
     @content = content || Hash.new
   end
 
-  def item_name(id)
-    Item.find(id).name
-  end
-
   def items_with_quantity
     format_quantity
     items = {}
