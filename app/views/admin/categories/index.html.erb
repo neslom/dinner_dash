@@ -1,0 +1,10 @@
+<div id="menu">
+  <h1>Manage Categories</h1>
+  <div class="row">
+    <% @categories.each do |category| %>
+      <div class="floaters">
+        <h4 class="item-title"> <%= link_to  category.name, category %> </hr>
+      </div>
+    <% end %>
+  </div>
+</div>
