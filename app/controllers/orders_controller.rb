@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    OrderEngine.process(@cart)
     order_cart = @cart.content
     current_user.orders.create(cart: order_cart)
     session[:cart]={}
