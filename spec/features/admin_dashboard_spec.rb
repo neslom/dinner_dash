@@ -1,12 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "Admin dashboard" do
-  it "is directed to admin dashboard when admin logs in" do
-    admin = create(:admin)
-    login_as(admin)
+  let(:admin) { create(:admin) }
 
+  before(:each) do
+    login_as(admin)
+  end
+
+  it "is directed to admin dashboard when admin logs in" do
     expect(current_path).to eq(admin_path)
     expect(page).to have_content("Admin")
     expect(page).to have_content("Successfully logged in as #{admin.username}")
+  end
+
+  it "has a link to Manage Items" do
+    expect(page).to have_link("Manage Items")
   end
 end
