@@ -1,14 +1,16 @@
 
 <% if !@cart_contents.empty? %>
   <ul>
-  <% @cart_contents.each do |item_id, quantity| %>
-    <li><%= Item.find(item_id).name %>
-        (<%= quantity %>)
-        <%= button_to "Add Item", cart_path(item_id: Item.find(item_id)) %>
-        <%= button_to "Remove Item", cart_path(item_id), method: :delete %>
 
-    </li>
-<% end %>
+    <% @cart.items_with_quantity.each do |item, quantity| %>
+      <li>
+        <%= item.name %>
+        <%= quantity %>
+        <%= button_to "Add Item", cart_path(item_id: item.id) %>
+        <%= button_to "Remove Item", cart_path(item), method: :delete %>
+      </li>
+    <% end %>
+
   </ul>
     <%= button_to "Checkout", orders_path %>
 <% else %>

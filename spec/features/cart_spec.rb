@@ -12,7 +12,7 @@ RSpec.describe "Cart" do
   it "shows a list of cart items" do
     visit cart_path
 
-    expect(page).to have_content("Cheese Toast (1)")
+    expect(page).to have_content("Cheese Toast 1")
   end
 
   it "can remove an item from the cart" do
