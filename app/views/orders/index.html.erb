@@ -14,7 +14,8 @@
     </ol>
 
     <li>Status: <%= order.status %></li>
-    <li>Updated At: <%= order.format_time %></li>
+    <li>Updated: <%= time_ago_in_words(order.updated_at) %> ago</li>
+
     <li>Order Total: <%= order.total %></li>
   <% end %>
 </ol>
