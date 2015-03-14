@@ -15,11 +15,11 @@ class Admin::ItemCategoriesController < ApplicationController
     @item_category = ItemCategory.new(category_id: params[:item_category][:category_id], item_id: params[:item_category][:item_id])
     category = Category.find(@item_category.category_id)
 
-    if @item_category.save!
+    if @item_category.save
       flash[:notice] = "Category updated!"
       redirect_to admin_category_path(category)
     else
-      flash[:notice] = "Update failed"
+      flash[:notice] = "Item already exists in this Category"
       redirect_to(:back)
     end
   end

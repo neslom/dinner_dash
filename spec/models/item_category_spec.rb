@@ -34,4 +34,11 @@ RSpec.describe ItemCategory do
     expect(category.items.count).to eq(0)
   end
 
+  it "does not allow for a duplicate entry" do
+    ItemCategory.create(category_id: 1, item_id: 1)
+    duplicate = ItemCategory.new(category_id: 1, item_id: 1)
+
+    expect(duplicate).not_to be_valid
+  end
+
 end
