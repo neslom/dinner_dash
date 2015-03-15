@@ -1,0 +1,10 @@
+<h3>Create Toast</h3>
+<%= form_for([:admin, @item]) do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label "Description" %>
+  <%= f.text_field :description %>
+  <%= f.label "Price" %>
+  <%= f.text_field :price %>
+  <%= f.submit "Create Toast" %>
+<% end %>
