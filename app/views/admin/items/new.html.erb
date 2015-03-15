@@ -5,6 +5,8 @@
   <%= f.label "Description" %>
   <%= f.text_field :description %>
   <%= f.label "Price" %>
-  <%= f.text_field :price %>
+  <%= f.text_field :price %><br><br>
+  <%= f.label "Upload Image" %>
+  <%= f.file_field :avatar %><br>
   <%= f.submit "Create Toast" %>
 <% end %>
