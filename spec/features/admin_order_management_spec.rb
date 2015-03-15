@@ -12,7 +12,7 @@ describe "Admin Order Managment" do
   end
 
   it "shows all orders" do
-    expect(page).to have_content("Manage all orders")
+    expect(page).to have_content("Manage Orders")
     expect(page).to have_content(order.id)
   end
 
@@ -30,6 +30,7 @@ describe "Admin Order Managment" do
   end
 
   it "shows total number of orders by status" do
-    expect(page).to have_content("Ordered: 1")
+    visit admin_orders_dashboard_path
+    expect(page).to have_content("Ordered 1")
   end
 end
