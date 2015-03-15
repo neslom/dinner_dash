@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 20150315011144) do
     t.string   "avatar"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "item_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "status",     default: 0
