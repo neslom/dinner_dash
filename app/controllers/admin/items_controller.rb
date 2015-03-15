@@ -1,16 +1,19 @@
 class Admin::ItemsController < ApplicationController
   layout "admin"
+  before_action :set_item, only: [:update, :show]
 
   def index
     @items = Item.all
   end
 
   def update
-    @item = Item.find(params[:id])
   end
 
   def new
     @item = Item.new
+  end
+
+  def show
   end
 
   def create
@@ -27,7 +30,10 @@ class Admin::ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :retired, :price)
+    params.require(:item).permit(:name, :description, :retired, :price, :avatar, :remote_avatar_url)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

@@ -27,6 +27,7 @@ gem 'autoprefixer-rails'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'rmagick'
 gem 'carrierwave'
 
 gem "therubyracer"
