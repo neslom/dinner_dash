@@ -32,4 +32,8 @@ RSpec.describe Item, type: :model do
     expect { create(:item, price: 0) }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
+  it "has an image" do
+
+  end
+
 end
