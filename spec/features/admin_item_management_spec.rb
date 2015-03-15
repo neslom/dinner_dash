@@ -14,7 +14,7 @@ RSpec.describe "Admin Item Management" do
     expect(current_path).to eq(new_admin_item_path)
   end
 
-  xit "fills in new item form to create a new item" do
+  it "fills in new item form to create a new item" do
     click_link_or_button("Create Item")
     fill_in("item[name]", with: "Beer Toast")
     fill_in("item[description]", with: "Soggy, beery toast")
