@@ -53,5 +53,10 @@ describe "Admin Order Management" do
       expect(page).to have_content("Manage Paid Orders")
     end
 
+    it "states there are no orders if the status clicked on has no orders" do
+      first(:link, "0").click
+
+      expect(page).to have_content("No orders of this status")
+    end
   end
 end

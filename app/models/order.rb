@@ -41,4 +41,5 @@ class Order < ActiveRecord::Base
   def format_quantity
     cart.each { |item, quantity| cart[item] = quantity.to_i }
   end
+
 end
