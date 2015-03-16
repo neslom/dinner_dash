@@ -1,0 +1,19 @@
+<h3>Update Item</h3>
+<%= form_for([:admin, @item]) do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label "Description" %>
+  <%= f.text_area :description %>
+  <%= f.label "Price" %>
+  <%= f.text_field :price %><br><br>
+
+  <figure class="default-pic">
+    <%= image_tag @item.avatar.url(:thumb) %>
+  </figure>
+
+  <%= f.label "Upload Image" %>
+  <%= f.file_field :avatar %><br>
+  <%= f.label :remote_avatar_url, "or image URL" %>
+  <%= f.text_field :remote_avatar_url %>
+  <%= f.submit "Update Item" %>
+<% end %>
