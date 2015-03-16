@@ -46,4 +46,9 @@ RSpec.describe "Admin Item Management" do
       expect(current_path).to eq(admin_items_path)
       expect(page).to have_content("Successfully Updated")
     end
+
+    it "has ability to delete an item" do
+      click_link_or_button("Cheese Toast")
+      exp
+    end
 end

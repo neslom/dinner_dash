@@ -43,5 +43,5 @@ RSpec.describe Item, type: :model do
       eksmorkemsokrmeoskmreosresreso
       kmkmimkormoskmokrmsokmomkokj")}.to raise_error(ActiveRecord::RecordInvalid)
   end
-
+  
 end

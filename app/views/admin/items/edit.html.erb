@@ -17,3 +17,5 @@
   <%= f.text_field :remote_avatar_url %>
   <%= f.submit "Update Item" %>
 <% end %>
+  <%= link_to "Retire Item", admin_item_path(@item, retired: true), method: :put %>
+  <%= link_to "Delete Item", "#" %>

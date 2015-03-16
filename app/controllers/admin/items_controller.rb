@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
+    if @item.update(retired: params[:retired])
       redirect_to admin_items_path
       flash[:notice] = "Successfully Updated"
     else
