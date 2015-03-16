@@ -1,12 +1,17 @@
 <div id="menu">
   <h1>All Items</h1>
+  <br>
+  <%= link_to "Return to Home Page", href="/", class: "btn btn-primary btn-lg btn-md active" %>
+  <br>
   <div class="row">
     <% @items.each do |item| %>
       <div class="floaters">
         <div class="toasty"><%= image_tag item.avatar.url(:thumb) %></div>
         <h4 class="item-title"> <%= link_to  item.name, item %> </hr>
+
         <div class="item-cart-button">
-          <%= button_to  'Add to Cart', cart_path(item_id: item) %>
+          <br>
+          <%= button_to  'Add to Cart', cart_path(item_id: item), class: "btn btn-success btn-xs active" %>
         </div>
       </div>
     <% end %>
