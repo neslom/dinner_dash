@@ -32,4 +32,16 @@ RSpec.describe Item, type: :model do
     expect { create(:item, price: 0) }.to raise_error(ActiveRecord::RecordInvalid)
   end
 
+  it "is invalid with a description over 300 characters" do
+    expect { create(:item, description: "jssssssssssssssssssssssssssssssssss
+      sssssssssssssssssssssssss
+      okmksmoksmokmsokms
+      okmssmoksmksmoksmomfresokmroeksmokrmeoksmok
+      rmeoskmrokemsokmroskmikrm
+      soikmroksmokrmoeskmroekmsokrmeoskmroekmsok
+      rmeoskmrokmesokmroskmorkmesokmroeksmokmroeskmorkmesokrmeoskmro
+      eksmorkemsokrmeoskmreosresreso
+      kmkmimkormoskmokrmsokmomkokj")}.to raise_error(ActiveRecord::RecordInvalid)
+  end
+
 end

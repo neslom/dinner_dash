@@ -1,12 +1,22 @@
 class Admin::ItemsController < ApplicationController
   layout "admin"
-  before_action :set_item, only: [:update, :show]
+  before_action :set_item, only: [:update, :show, :edit]
 
   def index
     @items = Item.all
   end
 
+  def edit
+  end
+
   def update
+    if @item.update(item_params)
+      redirect_to admin_items_path
+      flash[:notice] = "Successfully Updated"
+    else
+      flash[:notice] = @item.errors.empty? ? "Item did not update" : @item.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   def new

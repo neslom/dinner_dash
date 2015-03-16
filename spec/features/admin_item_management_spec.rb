@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Admin Item Management" do
   let(:admin) { create(:admin) }
+  let!(:item) { create(:item) }
 
   before(:each) do
     login_as(admin)
@@ -37,8 +38,12 @@ RSpec.describe "Admin Item Management" do
   end
 
     it "has ability to update an item" do
-      item = create(:item)
       click_link_or_button("Cheese Toast")
-      expect(current_path).to eq(admin_item_path(item))
+      expect(current_path).to eq(edit_admin_item_path(item))
+      expect(item.price).to eq(3.0)
+      fill_in("item[price]", with: 3.50)
+      click_link_or_button("Update")
+      expect(current_path).to eq(admin_items_path)
+      expect(page).to have_content("Successfully Updated")
     end
 end
