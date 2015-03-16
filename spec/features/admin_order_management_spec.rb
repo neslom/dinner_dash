@@ -78,7 +78,7 @@ describe "Admin Order Management" do
       expect(current_path).to eq(admin_order_path(order_21))
       expect(order_21.status).to eq("paid")
 
-      within("#ordered") do
+      within("#completed") do
         choose("order[status]")
       end
       click_link_or_button("Submit")
