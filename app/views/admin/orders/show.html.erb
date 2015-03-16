@@ -15,7 +15,30 @@
 <% end %>
 </ol>
 
-<li>Status: <%= @order.status %></li>
+<li>Status: <%= @order.status %>
+ <%= form_for [:admin, @order] do |f| %>
+   <div id="ordered">
+   <%= f.radio_button(:status, "ordered") %>
+   <%= f.label(:status, "Ordered") %>
+ </div>
+ <div id="paid">
+   <%= f.radio_button(:status, "paid") %>
+   <%= f.label(:status, "Paid") %>
+ </div>
+ <div id="completed">
+   <%= f.radio_button(:status, "completed") %>
+   <%= f.label(:status, "Completed") %>
+ </div>
+ <div id="cancelled">
+   <%= f.radio_button(:status, "cancelled") %>
+   <%= f.label(:status, "Cancelled") %>
+ </div>
+
+   <%= f.submit "Submit" %>
+ <% end %>
+
+</li>
+
 <li>Updated: <%= time_ago_in_words(@order.updated_at) %> ago</li>
 
 <li>Order Total: <%= number_to_currency(@order.total) %></li>

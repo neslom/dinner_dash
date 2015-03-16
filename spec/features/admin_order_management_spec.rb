@@ -58,5 +58,32 @@ describe "Admin Order Management" do
 
       expect(page).to have_content("No orders of this status")
     end
+
+  end
+
+  context "when viewing an individual order" do
+    before(:each) do
+      login_as(admin)
+      user.orders.create(id: 13, status:1, cart: {"1" => 3} )
+      user.orders.create(id: 21, status:1, cart: {"1" => 3} )
+
+      visit admin_orders_dashboard_path
+      click_link_or_button("2")
+    end
+
+    it "can change an order's status" do
+      order_21 = user.orders.find(21)
+      click_link_or_button("21")
+
+      expect(current_path).to eq(admin_order_path(order_21))
+      expect(order_21.status).to eq("paid")
+
+      within("#ordered") do
+        choose("order[status]")
+      end
+      click_link_or_button("Submit")
+
+      expect(page).to have_content("Success")
+    end
   end
 end

@@ -13,6 +13,20 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def update
+    @order = Order.find(params[:id])
+    if @order.update(order_params)
+      flash[:notice] = "Success"
+      redirect_to(:back)
+    else
+      redirect_to(:back)
+      flash[:notice] = "Not a success"
+    end
+  end
 
+  private
 
+  def order_params
+    params.require(:order).permit(:status, :cart, :user_id)
+  end
 end
