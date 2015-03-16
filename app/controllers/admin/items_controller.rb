@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   layout "admin"
-  before_action :set_item, only: [:update, :show, :edit]
+  before_action :set_item, only: [:update, :show, :edit, :destroy]
 
   def index
     @items = Item.all
@@ -10,7 +10,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(retired: params[:retired])
+    if @item.update(item_params)
       redirect_to admin_items_path
       flash[:notice] = "Successfully Updated"
     else
@@ -34,6 +34,16 @@ class Admin::ItemsController < ApplicationController
     else
       flash[:notice] = "That toast already exists"
       redirect_to new_admin_item_path
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      flash[:notice] = "Item Deleted"
+      redirect_to admin_items_path
+    else
+      flash[:notice] = "Uh oh, something went wrong"
+      render :edit
     end
   end
 

@@ -47,8 +47,21 @@ RSpec.describe "Admin Item Management" do
       expect(page).to have_content("Successfully Updated")
     end
 
+    it "has the ability to activate an item" do
+      item.retired = true
+      click_link_or_button("Cheese Toast")
+      within("#false") do
+        choose("item[retired]")
+      end
+      click_link_or_button("Update")
+      expect(current_path).to eq(admin_items_path)
+      expect(page).to have_content("Successfully Updated")
+    end
+
     it "has ability to delete an item" do
       click_link_or_button("Cheese Toast")
-      exp
+      click_link_or_button("Delete Item")
+      expect(current_path).to eq(admin_items_path)
+      expect(page).to have_content("Item Deleted")
     end
 end

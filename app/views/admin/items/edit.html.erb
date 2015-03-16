@@ -6,6 +6,14 @@
   <%= f.text_area :description %>
   <%= f.label "Price" %>
   <%= f.text_field :price %><br><br>
+  <div id="true">
+    <%= f.radio_button(:retired, "true") %>
+    <%= f.label(:retired, "Retired") %>
+  </div>
+  <div id="false">
+    <%= f.radio_button(:retired, "false") %>
+    <%= f.label(:retired, "Active") %>
+  </div>
 
   <figure class="default-pic">
     <%= image_tag @item.avatar.url(:thumb) %>
@@ -17,5 +25,4 @@
   <%= f.text_field :remote_avatar_url %>
   <%= f.submit "Update Item" %>
 <% end %>
-  <%= link_to "Retire Item", admin_item_path(@item, retired: true), method: :put %>
-  <%= link_to "Delete Item", "#" %>
+  <%= link_to "Delete Item", admin_item_path, method: :delete %>
