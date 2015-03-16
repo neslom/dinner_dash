@@ -1,3 +1,5 @@
+<%= link_to "Back to Items", items_path, class: "btn btn-info btn-small active"  %>
+<br>
 <h1 id="item-title"><%= @item.name %></h1>
 
 <p id="item-description"><%= @item.description %></p>
@@ -7,10 +9,10 @@
 <figure class="default-pic">
   <%= image_tag @item.avatar.url %>
 </figure>
-
+<br>
 
 <% if @item.retired? %>
   <p id="retired-item"><%= "#{@item.name} has been retired from the menu" %></p>
 <% else %>
-  <%= button_to  'Add to Cart', cart_path(item_id: @item) %>
+  <%= button_to  'Add to Cart', cart_path(item_id: @item), class: "btn btn-info btn-small active" %>
 <% end %>
