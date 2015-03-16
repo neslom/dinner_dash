@@ -1,7 +1,6 @@
-<h3>Manage <%= @category.name %></h3>
+<h3>Manage <%= @category.name %></h3><br>
 
 <div id="menu">
-  <h1>All Items</h1><br>
   <%= link_to  'Add Item', new_admin_item_category_path(category_id: params[:id]), class: 'btn btn-info btn-lg' %><br>
     <% @items.each do |item| %>
       <div class="floaters">

@@ -15,7 +15,6 @@ RSpec.describe "Admin Category Management" do
 
     expect(current_path).to eq(admin_category_path(category_1))
     expect(page).to have_content("Manage Entree")
-    expect(page).to have_content("All Items")
   end
 
   it "can click a button to remove an item from the category" do
