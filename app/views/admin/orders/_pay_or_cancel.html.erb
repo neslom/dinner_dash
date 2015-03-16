@@ -1,0 +1,11 @@
+<%= form_for [:admin, @order] do |f| %>
+<div id="paid">
+   <%= f.radio_button(:status, "paid") %>
+   <%= f.label(:status, "Pay") %>
+ </div>
+ <div id="cancelled">
+   <%= f.radio_button(:status, "cancelled") %>
+   <%= f.label(:status, "Cancel") %>
+ </div>
+   <%= f.submit "Submit" %>
+ <% end %>

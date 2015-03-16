@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-    let(:order) { create(:order) }
+  let(:order) { create(:order) }
 
   it "has a defualt status of ordered" do
     expect(order.status).to eq("ordered")

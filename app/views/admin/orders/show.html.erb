@@ -15,7 +15,14 @@
 <% end %>
 </ol>
 
-<li>Status: <%= @order.status %></li>
+<li>Status: <%= @order.status %>
+<% if @order.status == "ordered" %>
+  <%= render partial: "pay_or_cancel" %>
+<% elsif @order.paid? %>
+    <%= render partial: "complete_or_cancel" %>
+<% end %>
+ </li>
+
 <li>Updated: <%= time_ago_in_words(@order.updated_at) %> ago</li>
 
 <li>Order Total: <%= number_to_currency(@order.total) %></li>
