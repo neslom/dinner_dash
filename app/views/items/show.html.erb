@@ -11,6 +11,6 @@
 
 <% if @item.retired? %>
   <p id="retired-item"><%= "#{@item.name} has been retired from the menu" %></p>
-<% else %>
+<% elsif current_user.default? %>
   <%= button_to  'Add to Cart', cart_path(item_id: @item) %>
 <% end %>
