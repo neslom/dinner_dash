@@ -7,7 +7,7 @@ RSpec.describe "Browse by Category" do
     category.items << item
 
     visit root_path
-    click_link_or_button("Entree")
+    click_link_or_button("Small plates")
 
     expect(current_path).to eq(category_path(category))
     expect(page).to have_link("Cheese Toast")

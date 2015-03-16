@@ -1,6 +1,22 @@
 class Order < ActiveRecord::Base
   belongs_to :user
   enum status: %w(ordered paid completed cancelled)
+  scope :ordered, -> { where(status: 0)}
+  scope :paid, -> { where(status: 1) }
+  scope :completed, -> { where(status: 2) }
+  scope :cancelled, -> { where(status: 3) }
+
+  def open?
+    status == "ordered" || status == "paid"
+  end
+
+  def unpaid?
+    status == "ordered" && status != "paid"
+  end
+
+  def paid?
+    status == "paid"
+  end
 
   def line_item_total(item, quantity)
     item.price * quantity
@@ -25,4 +41,5 @@ class Order < ActiveRecord::Base
   def format_quantity
     cart.each { |item, quantity| cart[item] = quantity.to_i }
   end
+
 end
