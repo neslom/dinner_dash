@@ -1,12 +1,22 @@
 class Admin::ItemsController < ApplicationController
   layout "admin"
-  before_action :set_item, only: [:update, :show]
+  before_action :set_item, only: [:update, :show, :edit, :destroy]
 
   def index
     @items = Item.all
   end
 
+  def edit
+  end
+
   def update
+    if @item.update(item_params)
+      redirect_to admin_items_path
+      flash[:notice] = "Successfully Updated"
+    else
+      flash[:notice] = @item.errors.empty? ? "Item did not update" : @item.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   def new
@@ -24,6 +34,16 @@ class Admin::ItemsController < ApplicationController
     else
       flash[:notice] = "That toast already exists"
       redirect_to new_admin_item_path
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      flash[:notice] = "Item Deleted"
+      redirect_to admin_items_path
+    else
+      flash[:notice] = "Uh oh, something went wrong"
+      render :edit
     end
   end
 
