@@ -35,4 +35,10 @@ RSpec.describe "Admin Item Management" do
 
     expect(page).to have_content("That toast already exists")
   end
+
+    it "has ability to update an item" do
+      item = create(:item)
+      click_link_or_button("Cheese Toast")
+      expect(current_path).to eq(admin_item_path(item))
+    end
 end
