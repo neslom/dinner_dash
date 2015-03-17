@@ -4,7 +4,7 @@ RSpec.describe ItemCategory do
   it "has an item associated with a category" do
     item = create(:item)
     category = create(:category)
-    category_2 = create(:category)
+    category_2 = create(:category, name: "Early Brunch")
     item_category = create(:item_category, item_id: item.id, category_id: category.id)
     item.categories << category_2
 

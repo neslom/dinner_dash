@@ -1,8 +1,9 @@
 class Admin::ItemCategoriesController < ApplicationController
   layout "admin"
-
   before_action :set_category, only: [:new, :edit, :update]
   before_action :item_options, :new
+  before_action :redirect_to_login_if_not_logged_in
+  before_action :is_admin?
 
   def new
     @item_category = ItemCategory.new(category_id: params[:category_id])
