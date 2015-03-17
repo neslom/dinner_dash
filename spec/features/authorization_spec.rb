@@ -41,7 +41,7 @@ RSpec.describe "User Authorization" do
     it "the user is prompted to log in if they visit the orders path" do
       visit orders_path
 
-      expect(page).to have_content("You must log in to view this page")
+      expect(page).to have_content("You must be logged in to view this page")
       expect(current_path).to eq(login_path)
     end
 

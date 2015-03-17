@@ -1,11 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :logged_out?, only: [:index]
+
   def index
-    if current_user.nil?
-      flash[:notice] = "You must log in to view this page"
-      redirect_to login_path
-    else
-      @orders = current_user.orders
-    end
+    @orders = current_user.orders
   end
 
   def create
@@ -16,4 +13,13 @@ class OrdersController < ApplicationController
       notice: "Order successfully submitted!"
   end
 
+
+  private
+
+  def logged_out?
+    if current_user.nil?
+      flash[:notice] = "You must be logged in to view this page"
+      redirect_to login_path
+    end
+  end
 end
