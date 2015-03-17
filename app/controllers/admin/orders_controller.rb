@@ -2,6 +2,7 @@ class Admin::OrdersController < ApplicationController
   layout "admin"
   before_action :redirect_to_login_if_not_logged_in
   before_action :is_admin?
+  before_action :set_order, only: [:show, :update]
 
   def index
     @orders = Order.all
@@ -12,11 +13,9 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
   end
 
   def update
-    @order = Order.find(params[:id])
     if @order.update(order_params)
       flash[:notice] = "Success"
       redirect_to(:back)
@@ -27,6 +26,10 @@ class Admin::OrdersController < ApplicationController
   end
 
   private
+
+  def set_order
+    @order = Order.find(params[:id])
+  end
 
   def order_params
     params.require(:order).permit(:status, :cart, :user_id)
