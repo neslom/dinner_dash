@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show]
+
   def index
     @items = Item.where(retired: false)
   end

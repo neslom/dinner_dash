@@ -1,9 +1,10 @@
 class Admin::ItemCategoriesController < ApplicationController
   layout "admin"
-  before_action :set_category, only: [:new, :edit, :update]
-  before_action :item_options, :new
   before_action :redirect_to_login_if_not_logged_in
   before_action :is_admin?
+  before_action :set_category, only: [:new, :edit, :update, :destroy]
+  before_action :set_item, only: [:destroy]
+  before_action :item_options, :new
 
   def new
     @item_category = ItemCategory.new(category_id: params[:category_id])
@@ -29,9 +30,6 @@ class Admin::ItemCategoriesController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:item_id])
-    @category = Category.find(params[:category_id])
-
     @item.categories.delete(@category)
     flash[:notice] = "#{@item.name} removed from category"
 
@@ -42,6 +40,10 @@ class Admin::ItemCategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:category_id])
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
   def item_options
