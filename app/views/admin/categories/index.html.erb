@@ -1,5 +1,7 @@
 <div id="menu">
   <h1>Manage Categories</h1>
+  <br>
+  <%= link_to "Add Category", new_admin_category_path %>
   <div class="row">
     <% @categories.each do |category| %>
       <div class="floaters">

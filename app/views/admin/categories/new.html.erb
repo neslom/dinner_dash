@@ -1,0 +1,7 @@
+<h1>Add a New Category of Toast</h1>
+
+<%= form_for([:admin, @category]) do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :name %><br>
+  <%= f.submit "Create Category" %>
+<% end %>
