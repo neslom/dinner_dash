@@ -30,8 +30,13 @@ RSpec.describe "User Authorization" do
       expect(page).to_not have_content("Billy's Orders")
     end
 
-    xit "cannot visit any admin paths" do
+    it "cannot visit any admin paths" do
+      login_as(user_1)
 
+      visit admin_path
+
+      expect(page).to have_content("Unauthorized. Access Denied")
+      expect(current_path).to eq(root_path)
     end
 
   end
