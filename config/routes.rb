@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root "home_page#index"
 
-  resources :items
+  resources :items, only: [:index, :show]
 
-  resources :categories
+  resources :categories, only: [:index, :show]
 
-  resources :orders
+  resources :orders, only: [:index, :create]
 
   get "/cart", to: "cart#index"
 
@@ -21,15 +21,16 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get "/", to: "dashboard#index"
+
     get "/orders_dashboard", to: "dashboard#show"
 
     resources :items
 
-    resources :categories
+    resources :categories, except: [:update, :destroy]
 
-    resources :orders
+    resources :orders, only: [:index, :show, :update]
 
-    resources :item_categories
+    resources :item_categories, except: [:index]
   end
 
 end
