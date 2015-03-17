@@ -18,7 +18,10 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       flash.now[:notice] = "Category Created!"
-      redirect_to admin_categories_path      
+      redirect_to new_admin_category_path
+    else
+      flash[:notice] = "That Category Already Exists"
+      redirect_to new_admin_category_path
     end
   end
 

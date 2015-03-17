@@ -25,4 +25,14 @@ RSpec.describe "Admin Category Add" do
     expect(Category.last.name).to eq("Tea Time")
   end
 
+  it "cannot create a category that already exists" do
+    click_link_or_button("Add Category")
+
+    2.times do
+      fill_in("category[name]", with: "Midnight Supper")
+      click_link_or_button("Create Category")
+    end
+    expect(page).to have_content("That Category Already Exists")
+  end
+
 end
