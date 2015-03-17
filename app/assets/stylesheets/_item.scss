@@ -1,0 +1,31 @@
+#item-title {
+  font-weight: bold;
+  margin-top: 20px;
+  margin-left: 30px;
+  text-shadow: 0px 2px 3px #666;
+}
+
+#item-description {
+  min-height: 25px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#item-price {
+  min-height: 24px;
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+#item-button {
+  margin-left: 30px;
+}
+
+.create-item-form {
+  width: 80%;
+}
+
+.item-title :hover {
+  color: #bfa24b;
+  text-decoration: none;
+}
