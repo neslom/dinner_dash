@@ -35,4 +35,24 @@ RSpec.describe "Cart" do
     end
   end
 
+  it "persists from logged out state to logged in state" do
+    visit cart_path
+
+    click_link_or_button("Add Item")
+
+    within("#flash_notice") do
+      expect(page).to have_content("Cheese Toast added to cart")
+    end
+
+    user = create(:user)
+    login_as(user)
+    visit cart_path
+
+    expect(page).to have_content("Cheese Toast")
+
+    click_link_or_button("Checkout")
+
+    expect(page).to have_content("Order successfully submitted")
+  end
+
 end
