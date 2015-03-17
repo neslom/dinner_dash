@@ -55,6 +55,13 @@ RSpec.describe "User Authorization" do
       expect(current_path).to eq(login_path)
     end
 
+    it "the user is told to log in if they visit an admin path" do
+      visit admin_path
+
+      expect(page).to have_content("You must be logged in to view this page")
+      expect(current_path).to eq(login_path)
+    end
+
   end
 
 end

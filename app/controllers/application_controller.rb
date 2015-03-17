@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :load_cart
 
+  private
+
   def load_cart
     @cart = Cart.new(session[:cart])
   end
@@ -17,5 +19,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :load_cart, :current_user, :is_admin?
+  def redirect_to_login_if_not_logged_in
+    if !current_user
+      flash[:notice] = "You must be logged in to view this page"
+      redirect_to login_path
+    end
+  end
+
+  helper_method :load_cart, :current_user, :is_admin?, :redirect_to_login_if_not_logged_in
+
 end
