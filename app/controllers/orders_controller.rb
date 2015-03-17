@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   def index
-    @orders = current_user.orders
+    if current_user.nil?
+      flash[:notice] = "You must log in to view this page"
+      redirect_to login_path
+    else
+      @orders = current_user.orders
+    end
   end
 
   def create
@@ -8,7 +13,7 @@ class OrdersController < ApplicationController
     current_user.orders.create(cart: order_cart)
     session[:cart]={}
     redirect_to cart_path,
-    notice: "Order successfully submitted!"
+      notice: "Order successfully submitted!"
   end
 
 end
