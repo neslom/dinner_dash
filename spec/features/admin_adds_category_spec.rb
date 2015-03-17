@@ -9,7 +9,7 @@ RSpec.describe "Admin Category Add" do
     click_link_or_button("Manage Categories")
   end
 
-  it "can click a button to be taken to a from" do
+  it "can click a button to be taken to a form" do
     click_link_or_button("Add Category")
     expect(page).to have_content("Add a New Category of Toast")
     expect(current_path).to eq(new_admin_category_path)
@@ -23,6 +23,7 @@ RSpec.describe "Admin Category Add" do
     click_link_or_button("Create Category")
 
     expect(Category.last.name).to eq("Tea Time")
+    expect(page).to have_content("Category Created!")
   end
 
   it "cannot create a category that already exists" do
