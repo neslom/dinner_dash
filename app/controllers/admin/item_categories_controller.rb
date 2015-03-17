@@ -3,6 +3,7 @@ class Admin::ItemCategoriesController < ApplicationController
 
   before_action :set_category, only: [:new, :edit, :update]
   before_action :item_options, :new
+  before_action :is_admin?
 
   def new
     @item_category = ItemCategory.new(category_id: params[:category_id])

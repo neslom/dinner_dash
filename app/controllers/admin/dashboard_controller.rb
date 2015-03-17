@@ -8,12 +8,4 @@ class Admin::DashboardController < ApplicationController
   def index
   end
 
-  private
-
-  def is_admin?
-    if !current_user.admin?
-      flash[:notice] = "Unauthorized. Access Denied"
-      redirect_to root_path
-    end
-  end
 end

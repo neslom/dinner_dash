@@ -1,6 +1,7 @@
 class Admin::ItemsController < ApplicationController
   layout "admin"
   before_action :set_item, only: [:update, :show, :edit, :destroy]
+  before_action :is_admin?
 
   def index
     @items = Item.all

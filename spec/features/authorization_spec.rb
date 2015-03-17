@@ -37,6 +37,11 @@ RSpec.describe "User Authorization" do
 
       expect(page).to have_content("Unauthorized. Access Denied")
       expect(current_path).to eq(root_path)
+
+      visit admin_categories_path
+
+      expect(page).to have_content("Unauthorized. Access Denied")
+      expect(current_path).to eq(root_path)
     end
 
   end

@@ -1,5 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   layout "admin"
+  before_action :is_admin?
 
   def index
     @categories = Category.all
