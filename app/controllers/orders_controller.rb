@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :logged_out?, only: [:index]
+  before_action :redirect_to_login_if_not_logged_in, only: [:index]
 
   def index
     @orders = current_user.orders
@@ -13,13 +13,4 @@ class OrdersController < ApplicationController
       notice: "Order successfully submitted!"
   end
 
-
-  private
-
-  def logged_out?
-    if current_user.nil?
-      flash[:notice] = "You must be logged in to view this page"
-      redirect_to login_path
-    end
-  end
 end
