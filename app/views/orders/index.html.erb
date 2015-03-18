@@ -4,15 +4,14 @@
   <% @orders.each do |order| %>
 
     <table class = "table table-striped">
-      <th>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Price</th>
-          <th>Total</th>
-        </tr>
-      </th>
-          <% order.items_with_quantity.each do |item, quantity|%>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+      </tr>
+      
+      <% order.items_with_quantity.each do |item, quantity|%>
         <tr>
           <td><%= link_to item.name, item_path(item) %></td>
           <td><%= quantity %></td>
