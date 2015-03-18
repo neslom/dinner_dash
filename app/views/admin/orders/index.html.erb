@@ -1,16 +1,13 @@
+<%= render "filter" %>
 
-
-<div>
-  <% if @orders.empty? %>
-    <p>No orders of this status</p>
-  <% elsif @orders == Order.all %>
-    <h1>Manage All Orders</h1>
-    <%= render 'filter' %>
-    <div class="orders">
-      <%= render partial: "order", collection: @orders %>
-    </div>
-  <% else %>
-    <h1>Manage <%= @orders.first.status.capitalize %> Orders</h1>
-    <%= render partial: "order", collection: @orders %>
+<div class="orders">
+  <% @orders.each do |order| %>
+    <div class="order" data-status="<%= order.status %>">
+    <dl>
+      <dt>Status</dt>
+      <dd class="order_status"><%= order.status %></dd>
+      <dd><%= order.id %></dd>
+    </dl>
+  </div>
   <% end %>
 </div>

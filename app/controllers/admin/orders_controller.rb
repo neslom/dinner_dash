@@ -6,7 +6,8 @@ class Admin::OrdersController < ApplicationController
 
   def index
     status = params[:status]
-    @orders = Order.sort_by_status(status)
+    #@orders = Order.sort_by_status(status)
+    @orders = Order.all
   end
 
   def show
