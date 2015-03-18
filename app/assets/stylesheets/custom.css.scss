@@ -20,23 +20,17 @@ body {
   margin-top: 35px;
 }
 
+.center{
+  width:30%;
+  margin-bottom:
+}
+
 
 // .item_cat {
 //   // width: 100%;
 //   // margin: 0 auto;
 //   border: 1px solid red;
 // }
-
-.toasty {
-  // margin-left: 120px;
-  // margin-right: 110px;
-}
-
-.floaters {
-  width: 23%;
-  float: left;
-  margin: 10px;
-}
 
 li {
   list-style-type:none;
@@ -48,6 +42,9 @@ input[type="submit"] {
   text-align:center;
   // margin: 0 auto;
   @include border-radius(5px);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 #cart-title {
@@ -60,14 +57,4 @@ input[type="submit"] {
 h4 {
   text-align: center;
   margin-bottom: 20px;
-}
-
-.item-create {
-  background: rgba(43,58,223,0.2);
-  width: 500px;
-  border: 1em;
-  border-color: black;
-  border-style: solid;
-  margin-left: auto;
-  margin-right: auto;
 }

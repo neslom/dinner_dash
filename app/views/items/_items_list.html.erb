@@ -1,6 +1,6 @@
 <div id="menu">
   <br>
-  <%= link_to "Return to Home Page", href="/", class: "btn btn-primary btn-lg btn-md active" %>
+  <%= link_to "Return to Home Page", href="/", class: "btn btn-primary btn-lg btn-md active center" %>
   <br>
   <div class="row">
     <% @items.each do |item| %>
@@ -10,7 +10,7 @@
 
         <div class="item-cart-button">
           <br>
-          <%= button_to  'Add to Cart', cart_path(item_id: item), class: "btn btn-success btn-xs active" %>
+            <%= button_to  'Add to Cart', cart_path(item_id: item), class: "btn btn-success btn-xs active center " %>
         </div>
       </div>
     <% end %>
