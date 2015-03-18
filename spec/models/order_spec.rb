@@ -31,4 +31,14 @@ RSpec.describe Order, type: :model do
 
   end
 
+  describe ".sort_by_status" do
+    it "returns all orders associated with the passed in status" do
+      ordered = create(:order, status: 0)
+      ordered_2 = create(:order, user_id: 1, status: 0)
+      ordered_3 = create(:order, user_id: 2, status: 1)
+
+      expect(Order.sort_by_status('0').count).to eq(2)
+    end
+  end
+
 end

@@ -5,11 +5,8 @@ class Admin::OrdersController < ApplicationController
   before_action :set_order, only: [:show, :update]
 
   def index
-    @orders = Order.all
-    @orders = Order.ordered if params[:status] == '0'
-    @orders = Order.paid if params[:status] == '1'
-    @orders = Order.completed if params[:status] == '2'
-    @orders = Order.cancelled if params[:status] == '3'
+    status = params[:status]
+    @orders = Order.sort_by_status(status)
   end
 
   def show
