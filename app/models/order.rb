@@ -36,6 +36,10 @@ class Order < ActiveRecord::Base
     totals.reduce(:+)
   end
 
+  def self.generate_order(user, cart)
+    create(user_id: user.id, cart: cart)
+  end
+
   private
 
   def format_quantity
