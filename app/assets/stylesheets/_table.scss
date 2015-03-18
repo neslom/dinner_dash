@@ -1,10 +1,20 @@
-table {
-  width: 100%;
-  box-shadow: none;
+#order-title{
+  text-align:center;
+  margin:0 auto;
+  margin-bottom: 30px;
+}
 
-  th, td {
-    margin-bottom:30px;
+#order-history, #cart{
+
+  table{
+    margin:0 auto;
+    display:block;
+    width:50%;
     text-align:center;
-  }
+    margin-bottom: 30px;
 
+    td, th{
+      text-align:center;
+    }
+  }
 }
