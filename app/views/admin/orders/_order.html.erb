@@ -1,4 +1,3 @@
-<ul>
 
     <div class="order" data-status="<%= order.status %>">
       <li>
@@ -10,13 +9,4 @@
         <dd class="order_status"><%= order.status %></dd>
       </dl>
     </div>
-    <!-- <% if order.open? %>
-    <% elsif order.unpaid? %>
-      <%= link_to "Mark as paid order", edit_admin_order_path(order) %>
-    <% elsif order.paid? %>
-      <%= link_to "Mark as completed order", edit_admin_order_path(order) %>
-    <% else %>
-      <%= order.status %>
-    <% end %> -->
     <br><br>
-</ul>
