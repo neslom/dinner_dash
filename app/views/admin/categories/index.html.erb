@@ -3,7 +3,7 @@
   <br>
   <%= link_to "Add Category", new_admin_category_path, class: "btn btn-info btn-lg" %>
   <br>
-  <div class="row">
+  <div class="row cats">
     <% @categories.each do |category| %>
       <div class="floaters">
         <h4 class="item-title"> <%= link_to  category.name, admin_category_path(category) %> </hr>
