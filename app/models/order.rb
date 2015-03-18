@@ -24,9 +24,13 @@ class Order < ActiveRecord::Base
 
   def items_with_quantity
     format_quantity
-    items = {}
-    cart.each { |id, quantity| items[Item.find(id)] = quantity }
-    items
+    #items = {}
+    #cart.each { |id, quantity| items[Item.find(id)] = quantity }
+    #items
+    cart.reduce({}) do |hash, (id, quantity)|
+      hash[Item.find(id)] = quantity
+      hash
+    end
   end
 
   def total
@@ -51,7 +55,7 @@ class Order < ActiveRecord::Base
     when '2'
       Order.completed
     when '3'
-      ORder.cancelled
+      Order.cancelled
     end
   end
 
