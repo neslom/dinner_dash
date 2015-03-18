@@ -2,13 +2,13 @@ class Admin::CategoriesController < ApplicationController
   layout "admin"
   before_action :redirect_to_login_if_not_logged_in
   before_action :is_admin?
+  before_action :set_category, only: [:show]
 
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
     @items = @category.items
   end
 
@@ -28,6 +28,10 @@ class Admin::CategoriesController < ApplicationController
   end
 
   private
+
+  def set_category
+    @category = Category.find(params[:id])
+  end
 
   def category_params
     params.require(:category).permit(:name)
