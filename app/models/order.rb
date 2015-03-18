@@ -31,11 +31,6 @@ class Order < ActiveRecord::Base
   end
 
   def total
-    #totals = items_with_quantity.map do |item, quantity|
-      #line_item_total(item, quantity)
-    #end
-    #totals.reduce(:+)
-
     items_with_quantity.reduce(0) do |total, (item, quantity)|
       total += line_item_total(item, quantity)
     end
