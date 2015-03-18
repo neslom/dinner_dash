@@ -1,21 +1,35 @@
-<h3><%= current_user.username %>'s Orders</h3>
+<h3 id="order-title"><%= current_user.username %>'s Orders</h3>
 
-<ol>
+<div id="order-history">
   <% @orders.each do |order| %>
 
-    <ol>
-      <% order.items_with_quantity.each do |item, quantity|%>
-        <li>
-          <%= link_to item.name, item_path(item) %>
-          <%= quantity %> @ <%= number_to_currency(item.price) %>
-          = <%= number_to_currency(order.line_item_total(item, quantity)) %>
-        </li>
+    <table class = "table table-striped">
+      <th>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
+        </tr>
+      </th>
+          <% order.items_with_quantity.each do |item, quantity|%>
+        <tr>
+          <td><%= link_to item.name, item_path(item) %></td>
+          <td><%= quantity %></td>
+          <td><%= number_to_currency(item.price) %></td>
+          <td><%= number_to_currency(order.line_item_total(item, quantity)) %></td>
+        </tr>
       <% end %>
-    </ol>
 
-    <li>Status: <%= order.status %></li>
-    <li>Updated: <%= time_ago_in_words(order.updated_at) %> ago</li>
-
-    <li>Order Total: <%= number_to_currency(order.total) %></li>
+      <tfoot>
+        <tr>
+          <td colspan="2">Status: <%= order.status %></td>
+          <td colspan="2">Updated: <%= time_ago_in_words(order.updated_at) %> ago</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="total">Order Total: <%= number_to_currency(order.total) %></td>
+        </tr>
+      </tfoot>
+    </table>
   <% end %>
-</ol>
+</div>
