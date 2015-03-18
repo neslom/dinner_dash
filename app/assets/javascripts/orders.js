@@ -12,7 +12,6 @@ $(document).ready(function () {
       if ($order.data('status') == currentStatus) {
         $order.show();
       } else {
-        console.log("order data:" + $order.data('status'));
         $order.hide();
       }
     });
