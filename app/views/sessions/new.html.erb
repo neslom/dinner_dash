@@ -1,5 +1,6 @@
 
-  <%= form_for(:session, url: login_path, class: "login-form", role: "form") do |f| %>
+<%= form_for(:session, url: login_path, role: "form") do |f| %>
+  <div id="login-form">
     <div>
       <%= f.label :username %>
       <%= f.text_field :username %>
@@ -18,5 +19,6 @@
     </div>
 
     <%= f.hidden_field :role %>
-  <%= f.submit "Check In" %>
+    <%= f.submit "Check In", id: "check-in" %>
+  </div>
 <% end %>

@@ -43,10 +43,10 @@ li {
 }
 
 input[type="submit"] {
-  width: 80%;
+  width: 60%;
   display:block;
   text-align:center;
-  margin: 0 auto;
+  // margin: 0 auto;
   @include border-radius(5px);
 }
 
@@ -60,10 +60,6 @@ input[type="submit"] {
 h4 {
   text-align: center;
   margin-bottom: 20px;
-}
-
-.login-form div{
-
 }
 
 .item-create {
