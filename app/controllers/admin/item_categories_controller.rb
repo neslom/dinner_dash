@@ -14,7 +14,7 @@ class Admin::ItemCategoriesController < ApplicationController
   end
 
   def create
-    @item_category = ItemCategory.new(category_id: params[:item_category][:category_id], item_id: params[:item_category][:item_id])
+    @item_category = ItemCategory.new(item_category_params)
     category = Category.find(@item_category.category_id)
 
     if @item_category.save
@@ -37,6 +37,10 @@ class Admin::ItemCategoriesController < ApplicationController
   end
 
   private
+
+  def item_category_params
+    params.require(:item_category).permit(:category_id, :item_id)
+  end
 
   def set_category
     @category = Category.find(params[:category_id])

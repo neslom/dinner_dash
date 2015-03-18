@@ -6,8 +6,8 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order_cart = @cart.content
-    current_user.orders.create(cart: order_cart)
+    cart = @cart.content
+    Order.generate_order(current_user, cart)
     session[:cart]={}
     redirect_to cart_path,
       notice: "Order successfully submitted!"
