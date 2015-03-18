@@ -24,9 +24,6 @@ class Order < ActiveRecord::Base
 
   def items_with_quantity
     format_quantity
-    #items = {}
-    #cart.each { |id, quantity| items[Item.find(id)] = quantity }
-    #items
     cart.reduce({}) do |hash, (id, quantity)|
       hash[Item.find(id)] = quantity
       hash
@@ -34,10 +31,14 @@ class Order < ActiveRecord::Base
   end
 
   def total
-    totals = items_with_quantity.map do |item, quantity|
-      line_item_total(item, quantity)
+    #totals = items_with_quantity.map do |item, quantity|
+      #line_item_total(item, quantity)
+    #end
+    #totals.reduce(:+)
+
+    items_with_quantity.reduce(0) do |total, (item, quantity)|
+      total += line_item_total(item, quantity)
     end
-    totals.reduce(:+)
   end
 
   def self.generate_order(user, cart)
