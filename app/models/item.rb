@@ -7,4 +7,8 @@ class Item < ActiveRecord::Base
   has_many :item_categories
   has_many :categories, through: :item_categories
   mount_uploader :avatar, AvatarUploader
+
+  def self.active_items
+    where(retired: false)
+  end
 end

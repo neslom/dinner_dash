@@ -47,6 +47,21 @@ RSpec.describe "Admin Item Management" do
       expect(page).to have_content("Successfully Updated")
     end
 
+    it "cannot update an item to match an existing item's attributes" do
+      item_2 = create(:item, name: "Nacho Toast", description: "not your toast", price: 3.00)
+      click_link_or_button("Cheese Toast")
+
+      expect(current_path).to eq(edit_admin_item_path(item))
+      expect(item.price).to eq(3.0)
+
+      fill_in("item[name]", with: "Nacho Toast")
+      fill_in("item[description]", with: "Soggy, beery toast")
+      fill_in("item[price]", with: 3.50)
+      click_link_or_button("Update")
+
+      expect(page).to have_content("Name has already been taken")
+    end
+
     it "has the ability to activate an item" do
       item.retired = true
       click_link_or_button("Cheese Toast")

@@ -3,11 +3,17 @@ require 'rails_helper'
 RSpec.describe "Admin Category Management" do
   let(:admin) { create(:admin) }
   let!(:category_1) { create(:category, id: 1) }
+  let!(:category_2) { create(:category, name: "Small plates") }
   let!(:item) { create(:item, id: 1) }
 
   before(:each) do
     login_as(admin)
     click_link_or_button("Manage Categories")
+  end
+
+  it "shows a link to each category" do
+    expect(page).to have_link("Entree")
+    expect(page).to have_link("Small plates")
   end
 
   it "is taken to a listing of Category Items" do
