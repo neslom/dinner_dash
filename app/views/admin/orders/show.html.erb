@@ -1,28 +1,45 @@
-<h1>Order: <%= @order.id %></h1>
+  <h1>Order: <%= @order.id %></h1>
 
-<ul>
-  <li><%= @order.created_at %></li>
-  <li><%= @order.user.username %></li>
-  <li><%= @order.user.email_address %></li>
-</ul>
+    <%= @order.created_at %><br>
+    <%= @order.user.username %><br>
+    <%= @order.user.email_address %><br>
+    <br>
+  <table class="table table-striped">
+    <tr>
+      <th>
+        Item
+      </th>
+      <th>
+        Quantity
+      </th>
+      <th>
+        Price
+      </th>
+      <th>
+        Subtotal
+      </th>
+    </tr>
+  <% @order.items_with_quantity.each do |item, quantity|%>
+    <tr>
+      <td><%= link_to item.name, admin_item_path(item) %></td>
+      <td><%= quantity %></td>
+      <td><%= number_to_currency(item.price) %></td>
+      <td><%= number_to_currency(@order.line_item_total(item, quantity)) %></td>
+    </tr>
+  <% end %>
 
-<% @order.items_with_quantity.each do |item, quantity|%>
-  <li>
-    <%= link_to item.name, admin_item_path(item) %>
-    <%= quantity %> @ <%= number_to_currency(item.price) %>
-    = <%= number_to_currency(@order.line_item_total(item, quantity)) %>
-  </li>
-<% end %>
-</ol>
+  </table>
 
-<li>Status: <%= @order.status %>
-<% if @order.status == "ordered" %>
-  <%= render partial: "pay_or_cancel" %>
-<% elsif @order.paid? %>
-    <%= render partial: "complete_or_cancel" %>
-<% end %>
- </li>
+Status: <%= @order.status %>
+  <% if @order.status == "ordered" %>
+    <%= render partial: "pay_or_cancel" %>
+  <% elsif @order.paid? %>
+      <%= render partial: "complete_or_cancel" %>
+  <% end %>
+<br>
 
-<li>Updated: <%= time_ago_in_words(@order.updated_at) %> ago</li>
-
-<li>Order Total: <%= number_to_currency(@order.total) %></li>
+Updated: <%= time_ago_in_words(@order.updated_at) %> ago
+<br>
+Order Total: <%= number_to_currency(@order.total) %>
+<br>
+<br>
