@@ -36,6 +36,25 @@ class Order < ActiveRecord::Base
     totals.reduce(:+)
   end
 
+  def self.generate_order(user, cart)
+    create(user_id: user.id, cart: cart)
+  end
+
+  def self.sort_by_status(status)
+    case status
+    when nil
+      Order.all
+    when '0'
+      Order.ordered
+    when '1'
+      Order.paid
+    when '2'
+      Order.completed
+    when '3'
+      ORder.cancelled
+    end
+  end
+
   private
 
   def format_quantity

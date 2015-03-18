@@ -1,18 +1,3 @@
-<!-- <h3>Create Toast</h3>
-<%= form_for([:admin, @item]) do |f| %>
-  <%= f.label "Name" %>
-  <%= f.text_field :name %>
-  <%= f.label "Description" %>
-  <%= f.text_field :description %>
-  <%= f.label "Price" %>
-  <%= f.text_field :price %><br><br>
-  <%= f.label "Upload Image" %>
-  <%= f.file_field :avatar %><br>
-  <%= f.label :remote_avatar_url, "or image URL" %>
-  <%= f.text_field :remote_avatar_url %>
-  <%= f.submit "Create Toast" %>
-<% end %> -->
-
 <div class="well item-create" >
 <h3>Create Toast</h3>
   <%= bootstrap_form_for([:admin, @item]) do |f| %>

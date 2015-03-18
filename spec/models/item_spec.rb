@@ -43,5 +43,16 @@ RSpec.describe Item, type: :model do
       eksmorkemsokrmeoskmreosresreso
       kmkmimkormoskmokrmsokmomkokj")}.to raise_error(ActiveRecord::RecordInvalid)
   end
-  
+
+  describe ".active_items" do
+    it "returns all active items" do
+      item
+      create(:item, name: "Test Toast")
+      create(:item, name: "Lazy Toast", retired: true)
+
+      expect(Item.count).to eq(3)
+      expect(Item.active_items.count).to eq(2)
+    end
+  end
+
 end
