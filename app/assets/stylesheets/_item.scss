@@ -29,3 +29,33 @@
   color: #bfa24b;
   text-decoration: none;
 }
+
+.item-create {
+  background: rgba(43,58,223,0.2);
+  width: 500px;
+  border: 1em;
+  border-color: black;
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.floaters {
+  width: 23%;
+  float: left;
+  margin: 10px;
+}
+
+.toasty {
+  text-align:center;
+}
+
+.center{
+  display:block;
+  margin:0 auto;
+  text-align:center;
+}
+
+#items-title{
+  text-align:center;
+}

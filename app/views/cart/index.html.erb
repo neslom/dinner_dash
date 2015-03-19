@@ -5,14 +5,12 @@
 <div id="cart">
   <% if !@cart_contents.empty? %>
     <table id="cart" class="table table-striped">
-      <th>
           <tr>
             <th>Item</th>
             <th>Quantity</th>
             <th>Increase Quantity</th>
             <th>Decrease Quantity</th>
           </tr>
-        </th>
           <% @cart.items_with_quantity.each do |item, quantity| %>
             <tr>
               <td><h4><%= item.name %></h4></td>
