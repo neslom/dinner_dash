@@ -32,4 +32,10 @@ class Admin::OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:status, :cart, :user_id)
   end
+
+  def show_by_order_status
+    Order.statuses.keys << "all"
+  end
+
+  helper_method :show_by_order_status
 end

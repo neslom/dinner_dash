@@ -4,9 +4,8 @@
   <% @orders.each do |order| %>
     <div class="order" data-status="<%= order.status %>">
     <dl>
-      <dt>Status</dt>
-      <dd class="order_status"><%= order.status %></dd>
-      <dd><%= order.id %></dd>
+      <dt><%= link_to "Order ID: #{ order.id }" , admin_order_path(order) %> </dt>
+      <dd class="order_status">Status: <%= order.status %></dd>
     </dl>
   </div>
   <% end %>

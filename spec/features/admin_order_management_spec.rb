@@ -14,12 +14,13 @@ describe "Admin Order Management" do
     end
 
     it "shows all orders" do
-      expect(page).to have_content("Manage Orders")
-      expect(page).to have_content(order.id)
+      expect(page).to have_content("all")
+      expect(page).to have_content("Order ID: #{order.id}")
     end
 
     it "links to a single order view" do
-      click_link_or_button(order.id.to_s)
+      click_link_or_button("Order ID: #{order.id}")
+
       expect(page).to have_content(order.user.username)
     end
 
