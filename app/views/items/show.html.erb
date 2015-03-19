@@ -1,4 +1,9 @@
-<%= link_to "Back to Items", items_path, class: "btn btn-info btn-small active"  %>
+<% if !current_user.nil? && current_user.admin? %>
+  <%= link_to "Back to Items", admin_items_path, class: "btn btn-info btn-small active"  %>
+<% else %>
+  <%= link_to "Back to Items", items_path, class: "btn btn-info btn-small active"  %>
+<% end %>
+
 <br>
 <h1 id="item-title"><%= @item.name %></h1>
 
