@@ -1,4 +1,5 @@
 <div class="filter">
   <label>Filter By Status</label>
-  <%= select("order", "filter_status", Order.statuses, {include_blank: true}) %>
+  <%= select("order", "filter_status", Order.statuses.keys + ["all"], selected: "all") %>
 </div>
+
