@@ -1,7 +1,7 @@
 <div id="menu">
-  <h1>Manage Categories</h1>
+  <h1 id="cat-title" class="center">Manage Categories</h1>
   <br>
-  <%= link_to "Add Category", new_admin_category_path, class: "btn btn-info btn-lg" %>
+  <%= link_to "Add Category", new_admin_category_path, class: "btn btn-info btn-lg center" %>
   <br>
   <div class="row cats">
     <% @categories.each do |category| %>
