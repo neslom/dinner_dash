@@ -44,7 +44,7 @@ RSpec.describe "Admin dashboard" do
 
     click_link_or_button("Manage Orders")
 
-    expect(current_path).to eq(admin_orders_dashboard_path)
+    expect(current_path).to eq(admin_orders_path)
   end
 
 end

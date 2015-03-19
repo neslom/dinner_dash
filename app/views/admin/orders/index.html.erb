@@ -1,20 +1,23 @@
-<% if @orders.empty? %>
-  <p>No orders of this status</p>
-<% elsif @orders == Order.all %>
-  <h1 class="admin-order-title">Manage All Orders</h1>
-  <table class="admin-order-list table table-striped">
-    <tr>
-      <th>Order Id</th>
-      <th>Updated</th>
-    </tr>
-    <%= render partial: "order", collection: @orders.reverse %>
-  </table>
-<% else %>
-  <h1 class="admin-order-title">Manage <%= @orders.first.status.capitalize %> Orders</h1>
-  <table class="admin-order-list table table-striped">
-    <tr>
-      <th>Order Id</th>
-      <th>Updated</th>
-    </tr>
-  <%= render partial: "order", collection: @orders %>
-<% end %>
+<h1 class="admin-order-title">Manage Orders</h1>
+
+<%= render "filter" %>
+
+<div class="orders">
+
+  <% @orders.reverse.each do |order| %>
+    <div class="order" data-status="<%= order.status %>">
+    <table class="admin-order-list table table-striped">
+      <tr>
+        <th>Order ID</th>
+        <th>Updated</th>
+      </tr>
+      <tr>
+        <td><%= link_to order.id, admin_order_path(order) %></td>
+        <td><%= time_ago_in_words(order.updated_at) %> ago</td>
+      </tr>
+    </table>
+  </div>
+  <% end %>
+
+</div>
+
