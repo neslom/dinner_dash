@@ -32,21 +32,17 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "Item saved!"
-      redirect_to new_admin_item_path
+      redirect_to admin_items_path
     else
-      flash[:notice] = "That toast already exists"
+      flash[:notice] = @item.errors.full_messages.to_sentence
       redirect_to new_admin_item_path
     end
   end
 
   def destroy
-    if @item.destroy
-      flash[:notice] = "Item Deleted"
-      redirect_to admin_items_path
-    else
-      flash[:notice] = "Uh oh, something went wrong"
-      render :edit
-    end
+    @item.destroy
+    flash[:notice] = "Item Deleted"
+    redirect_to admin_items_path
   end
 
   private

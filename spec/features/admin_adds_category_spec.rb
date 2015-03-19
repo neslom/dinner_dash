@@ -22,6 +22,7 @@ RSpec.describe "Admin Category Add" do
     fill_in("category[name]", with: "Tea Time")
     click_link_or_button("Create Category")
 
+    save_and_open_page
     expect(Category.last.name).to eq("Tea Time")
     expect(page).to have_content("Category Created!")
   end
