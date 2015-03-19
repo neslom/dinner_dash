@@ -1,13 +1,4 @@
-<ul>
-    <li>Order: <%= link_to order.id, admin_order_path(order)%>
-    updated: <%= time_ago_in_words(order.updated_at) %> ago</li>
-    <% if order.open? %>
-    <% elsif order.unpaid? %>
-      <%= link_to "Mark as paid order", edit_admin_order_path(order) %>
-    <% elsif order.paid? %>
-      <%= link_to "Mark as completed order", edit_admin_order_path(order) %>
-    <% else %>
-      <%= order.status %>
-    <% end %>
-    <br><br>
-</ul>
+  <tr>
+    <td><%= link_to order.id, admin_order_path(order)%></td>
+    <td><%= time_ago_in_words(order.updated_at) %> ago</td>
+  </tr>

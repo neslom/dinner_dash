@@ -7,6 +7,24 @@ body {
   background-attachment: fixed;
 }
 
+#admin-dash{
+  padding-top:150px;
+  padding-bottom:150px;
+  color:white#525252;
+
+  background-image: image-url('admin-dash.jpg');
+
+  #admin-title{
+    border:1px solid white;
+    background:rgba(255, 255, 255, 0.91);
+    width:400px;
+    margin:0 auto;
+    text-align:center;
+    padding:15px 0 15px 0;
+    @include border-radius(5px);
+  }
+}
+
 .logo {
   margin-right: 10px;
 }
@@ -20,22 +38,9 @@ body {
   margin-top: 35px;
 }
 
-
-// .item_cat {
-//   // width: 100%;
-//   // margin: 0 auto;
-//   border: 1px solid red;
-// }
-
-.toasty {
-  // margin-left: 120px;
-  // margin-right: 110px;
-}
-
-.floaters {
-  width: 23%;
-  float: left;
-  margin: 10px;
+.center{
+  width:30%;
+  margin-bottom:10px;
 }
 
 li {
@@ -43,11 +48,13 @@ li {
 }
 
 input[type="submit"] {
-  width: 80%;
+  width: 60%;
   display:block;
   text-align:center;
-  margin: 0 auto;
   @include border-radius(5px);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 #cart-title {
@@ -56,14 +63,13 @@ input[type="submit"] {
   margin-bottom:50px;
 }
 
+#cart table tfoot td{
+  border:none;
+}
 
 h4 {
   text-align: center;
   margin-bottom: 20px;
-}
-
-.login-form div{
-
 }
 
 .item-create {
