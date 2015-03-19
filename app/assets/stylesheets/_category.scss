@@ -25,6 +25,10 @@
   text-decoration: none;
 }
 
+#cat-title{
+  text-align:center;
+}
+
 #menu .floaters{
   width:18%;
   border:1px solid white;
@@ -38,4 +42,9 @@
 
 .cats{
   margin-top:30px;
+}
+
+.item-cat-button input{
+  margin:0 auto;
+  width:150px;
 }

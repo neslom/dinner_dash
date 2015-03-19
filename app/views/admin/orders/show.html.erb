@@ -31,7 +31,7 @@
         <td colspan="4">Order Total: <%= number_to_currency(@order.total) %></td>
       </tr>
       <tr>
-        <td>
+        <td colspan="4">
           <% if @order.status == "ordered" %>
             <%= render partial: "pay_or_cancel" %>
           <% elsif @order.paid? %>
