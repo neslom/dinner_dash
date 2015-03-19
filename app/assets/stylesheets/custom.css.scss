@@ -57,6 +57,16 @@ input[type="submit"] {
   box-shadow: none;
 }
 
+#small_submit_button {
+  width: 20%;
+  display:block;
+  text-align:center;
+  @include border-radius(5px);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 #cart-title {
   width: 100%;
   text-align:center;
