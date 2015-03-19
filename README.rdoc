@@ -1,28 +1,10 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dinner Dash is an online restaurant marketplace built with Ruby on Rails, specializing in the sale of toast products.
 
-Things you may want to cover:
+This is the Second Module project at the Turing School of Software Development and Design.
 
-* Ruby version
+Team consisted of Mac McCarthy, Kyra Steenbock, and Markus Olsen.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Find us on Heroku at:
+https://safe-dusk-9551.herokuapp.com/
