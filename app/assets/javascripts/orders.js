@@ -18,8 +18,4 @@ $(document).ready(function () {
     }
   });
 
-  //$('#order_filter_status').dropdown(){
-    //style: 'btn-info';
-  //};
-
 });
