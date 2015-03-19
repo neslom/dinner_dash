@@ -3,13 +3,21 @@
 <%= render "filter" %>
 
 <div class="orders">
+
   <% @orders.reverse.each do |order| %>
     <div class="order" data-status="<%= order.status %>">
-    <dl>
-      <dt><%= link_to "Order ID: #{order.id}" , admin_order_path(order) %> </dt>
-      <td>Updated <%= time_ago_in_words(order.updated_at) %> ago</td>
-    </dl>
+    <table class="admin-order-list table table-striped">
+      <tr>
+        <th>Order ID</th>
+        <th>Updated</th>
+      </tr>
+      <tr>
+        <td><%= link_to order.id, admin_order_path(order) %></td>
+        <td><%= time_ago_in_words(order.updated_at) %> ago</td>
+      </tr>
+    </table>
   </div>
   <% end %>
+
 </div>
 
