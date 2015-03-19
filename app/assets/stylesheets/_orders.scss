@@ -9,6 +9,19 @@
   margin-bottom:30px;
 }
 
+.admin-order-show{
+  width:70%;
+  margin:0 auto;
+  border:1px solid white;
+  background:rgba(255, 255, 255, 0.91);
+
+  tfoot{
+    td{
+      text-align:center;
+    }
+  }
+}
+
 .admin-order-list{
   margin:0 auto;
   margin-top:20px;
@@ -23,5 +36,21 @@
 
   td{
     padding:10px;
+  }
+}
+
+#order-show{
+  text-align:center;
+}
+
+#order-info{
+  ul{
+    padding-left:0px;
+    display:block;
+  }
+
+  li{
+    margin:10px;
+    text-align:center;
   }
 }
