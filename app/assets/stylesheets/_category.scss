@@ -24,3 +24,18 @@
   color: #bfa24b;
   text-decoration: none;
 }
+
+#menu .floaters{
+  width:18%;
+  border:1px solid white;
+  @include border-radius(5px);
+  background:rgba(255, 255, 255, 0.83);
+
+  h4{
+    margin-bottom:10px;
+  }
+}
+
+.cats{
+  margin-top:30px;
+}
