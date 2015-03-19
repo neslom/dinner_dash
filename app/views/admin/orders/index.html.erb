@@ -1,9 +1,15 @@
 <% if @orders.empty? %>
   <p>No orders of this status</p>
 <% elsif @orders == Order.all %>
-  <h1>Manage All Orders</h1>
-  <%= render partial: "order", collection: @orders %>
+  <h1 class="admin-order-title">Manage All Orders</h1>
+  <table class="admin-order-list table table-striped">
+    <tr>
+      <th>Order Id</th>
+      <th>Updated</th>
+    </tr>
+    <%= render partial: "order", collection: @orders %>
+  </table>
 <% else %>
-  <h1>Manage <%= @orders.first.status.capitalize %> Orders</h1>
+  <h1 class="admin-order-title">Manage <%= @orders.first.status.capitalize %> Orders</h1>
   <%= render partial: "order", collection: @orders %>
 <% end %>
