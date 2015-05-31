@@ -1,6 +1,9 @@
 == README
 
 Dinner Dash is an online restaurant marketplace built with Ruby on Rails, specializing in the sale of toast products.
+This project is a standard CRUD shopping site using RESTful conventions.
+
+My focus was on TDD, pair programming, and utilizing a session-based cart.
 
 This is the Second Module project at the Turing School of Software Development and Design.
 
